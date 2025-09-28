@@ -54,7 +54,7 @@ const Apartments = () => {
     ]
   };
 
-  const handleViewApartment = (apartment: any) => {
+  const handleViewApartment = () => {
     // Scroll to contact section
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -171,7 +171,7 @@ const Apartments = () => {
                   
                   <button 
                     className="btn btn-primary apartment-btn"
-                    onClick={() => handleViewApartment(apartment)}
+                    onClick={handleViewApartment}
                   >
                     {t('apartments.viewApartment')}
                   </button>

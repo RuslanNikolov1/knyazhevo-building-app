@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useRef } from 'react';
-import { lazyLoadImage, preloadImage } from '../utils/lazyLoad';
+import { preloadImage } from '../utils/lazyLoad';
 import './Hero.scss';
 
 const Hero = () => {

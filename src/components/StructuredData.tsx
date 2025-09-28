@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 const StructuredData = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const structuredData = {
     "@context": "https://schema.org",

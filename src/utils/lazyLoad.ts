@@ -28,7 +28,7 @@ export const preloadImage = (src: string): Promise<void> => {
 };
 
 // Optimize image loading
-export const optimizeImage = (src: string, width?: number, quality: number = 80): string => {
+export const optimizeImage = (src: string): string => {
   // In a real application, you would use a service like Cloudinary or ImageKit
   // For now, we'll return the original src
   return src;
