@@ -125,19 +125,17 @@
 }
 
 .lang-btn {
-  background: none;
-  border: 2px solid var(--primary-lighter);
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
   color: var(--text-secondary);
-  font-size: 1.4rem;
-  font-weight: 500;
-  padding: 0.5rem 0.7rem;
+  padding: 0.4rem;
   border-radius: 8px;
   cursor: pointer;
   transition: all var(--transition-fast);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 44px;
+  min-width: 48px;
   height: 36px;
   position: relative;
   overflow: hidden;
@@ -149,15 +147,14 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(243, 156, 18, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(243, 156, 18, 0.3), transparent);
     transition: left var(--transition-medium);
   }
 
   &:hover {
-    border-color: var(--accent-gold);
-    background: rgba(243, 156, 18, 0.1);
+    background: rgba(0, 0, 0, 0.8);
     transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 
     &::before {
       left: 100%;
@@ -166,7 +163,6 @@
 
   &.active {
     background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
-    border-color: var(--accent-gold);
     color: var(--white);
     box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
     transform: scale(1.05);
@@ -174,6 +170,18 @@
 
   &:active {
     transform: scale(0.95);
+  }
+
+  .flag-image {
+    width: 32px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform var(--transition-fast);
+  }
+
+  &:hover .flag-image {
+    transform: scale(1.1);
   }
 }
 
@@ -304,7 +312,7 @@
 
 .mobile-lang-btn {
   background: var(--white);
-  border: 2px solid var(--primary-lighter);
+  border: none;
   border-radius: 8px;
   padding: 1rem;
   cursor: pointer;
@@ -314,23 +322,52 @@
   gap: 1rem;
   text-align: left;
   width: 100%;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px 0 0 8px;
+    transition: all var(--transition-fast);
+  }
 
   &:hover {
-    border-color: var(--accent-gold);
     background: rgba(243, 156, 18, 0.05);
     transform: translateX(4px);
+
+    &::before {
+      background: rgba(0, 0, 0, 0.8);
+    }
   }
 
   &.active {
     background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
-    border-color: var(--accent-gold);
     color: var(--white);
     box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+
+    &::before {
+      background: rgba(0, 0, 0, 0.3);
+    }
   }
 
-  .flag-emoji {
-    font-size: 1.5rem;
+  .mobile-flag-image {
+    width: 28px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 3px;
     flex-shrink: 0;
+    transition: transform var(--transition-fast);
+    position: relative;
+    z-index: 2;
+  }
+
+  &:hover .mobile-flag-image {
+    transform: scale(1.05);
   }
 
   .lang-text {
