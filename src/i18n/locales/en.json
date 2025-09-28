@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "title": "Your new home – where the city meets the mountain",
+    "subtitle": "Live in the heart of the city and a step away from nature. Modern design, green spaces and amenities for peace and comfort every day.",
+    "cta": "Explore apartments"
+  },
+  "building": {
+    "title": "About the Building",
+    "description": "The building is designed with attention to detail, with a modern facade and functional housing. Each floor offers spacious apartments with optimal layout.",
+    "floors": {
+      "ground": "Ground floor (+0.00) - Parking",
+      "floor1": "Floor +3.10",
+      "floor2": "Floor +6.15",
+      "floor3": "Floor +9.20", 
+      "floor4": "Floor +12.25"
+    },
+    "stats": {
+      "floors": "FLOORS",
+      "apartments": "APARTMENTS",
+      "completion": "COMPLETION"
+    },
+    "situation": "Building Situation",
+    "location": "Location",
+    "address": "KnyazhevoVitosha Quarter, Vitoshki Izvori St 4, 1619 Sofia",
+    "expandMap": "Click to expand map",
+    "minimizeMap": "Click to minimize map"
+  },
+  "apartments": {
+    "title": "Apartments",
+    "viewApartment": "Request viewing",
+    "floor": "Floor",
+    "area": "Area",
+    "bedrooms": "Bedrooms",
+    "price": "Price",
+    "balcony": "Balcony",
+    "sqm": "sqm",
+    "eur": "EUR"
+  },
+  "amenities": {
+    "title": "Amenities & Parking",
+    "description": "Private parking at ground level (+0.00) and modern common areas, created for comfort and security.",
+    "parking": "Parking",
+    "security": "Security",
+    "modern": "Modern common areas",
+    "green": "Green Spaces",
+    "smart": "Smart Features",
+    "convenience": "Convenience",
+    "parkingDesc": "Secure underground parking with 24/7 access control and direct elevator connection to all floors",
+    "securityDesc": "Advanced security system with CCTV monitoring, access control, and 24/7 concierge service",
+    "modernDesc": "Contemporary common areas including lobby, fitness center, and rooftop terrace with city views",
+    "greenDesc": "Landscaped gardens and green areas designed for relaxation and outdoor activities",
+    "smartDesc": "Smart home technology with energy-efficient systems and modern appliances",
+    "convenienceDesc": "Prime location with easy access to shopping centers, restaurants, and public transportation"
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "submit": "Send inquiry",
+    "success": "Inquiry sent successfully!",
+    "error": "An error occurred. Please try again."
+  },
+  "navigation": {
+    "home": "Home",
+    "building": "About",
+    "apartments": "Apartments",
+    "amenities": "Amenities",
+    "contact": "Contact"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "luxuryLiving": "Luxury Living"
+  },
+  "construction": {
+    "title": "Construction Progress",
+    "description": "Follow the project development from start to completion",
+    "image": "Image"
+  },
+  "premium": {
+    "title": "Premium Living Experience",
+    "description": "Every detail has been carefully considered to provide residents with the ultimate in comfort, convenience, and luxury. From the moment you enter the building, you'll experience the difference that quality design and attention to detail makes."
+  }
+}

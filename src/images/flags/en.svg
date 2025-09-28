@@ -1,0 +1,19 @@
+<svg width="24" height="18" viewBox="0 0 24 18" xmlns="http://www.w3.org/2000/svg">
+  <rect width="24" height="18" fill="#012169"/>
+  <g fill="#ffffff">
+    <path d="M0 0v18l24-18z"/>
+    <path d="M24 0v18l-24-18z"/>
+  </g>
+  <g fill="#c8102e">
+    <path d="M0 0v18l24-18z"/>
+    <path d="M24 0v18l-24-18z"/>
+  </g>
+  <g fill="#ffffff">
+    <path d="M0 0v18l24-18z"/>
+    <path d="M24 0v18l-24-18z"/>
+  </g>
+  <g fill="#c8102e">
+    <path d="M0 0v18l24-18z"/>
+    <path d="M24 0v18l-24-18z"/>
+  </g>
+</svg>
