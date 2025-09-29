@@ -11,7 +11,7 @@ const BuildingOverview = () => {
     triggerOnce: true,
     threshold: 0.1
   });
-  const [isMapExpanded, setIsMapExpanded] = useState(false);
+  const [isMapExpanded, setIsMapExpanded] = useState(true);
 
   const features = [
     {
@@ -87,7 +87,7 @@ const BuildingOverview = () => {
               onClick={() => !isMapExpanded && setIsMapExpanded(true)}
             >
               <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=23.218933%2C42.643487%2C23.238933%2C42.663487&layer=mapnik&marker=42.653487%2C23.228933"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=23.225933%2C42.648487%2C23.231933%2C42.658487&layer=mapnik&marker=42.653487%2C23.228933"
                 width="100%"
                 height={isMapExpanded ? "400" : "200"}
                 style={{ border: 0 }}

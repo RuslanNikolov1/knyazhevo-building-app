@@ -171,7 +171,7 @@ const Apartments = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <h3>Гаражи от 20 хил.евро без ддс</h3>
+              <h3>Гаражи от 20 хил.евро без ДДС</h3>
             </motion.div>
           )}
 
