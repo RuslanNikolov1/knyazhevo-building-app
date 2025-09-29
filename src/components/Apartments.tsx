@@ -1,23 +1,76 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import './Apartments.scss';
 
 const Apartments = () => {
   const { t } = useTranslation();
-  const [selectedFloor, setSelectedFloor] = useState('+6.15');
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
+  const [selectedTab, setSelectedTab] = useState('parking');
 
-  const floors = [
-    { id: '+3.10', name: t('building.floors.floor1'), available: 6 },
-    { id: '+6.15', name: t('building.floors.floor2'), available: 6 },
-    { id: '+9.20', name: t('building.floors.floor3'), available: 6 },
-    { id: '+12.25', name: t('building.floors.floor4'), available: 6 }
+  const tabs = [
+    { id: 'parking', name: t('apartments.parkingSpaces'), available: 27, type: 'parking' },
+    { id: 'garage', name: t('apartments.garage'), available: 24, type: 'garage' },
+    { id: '+3.10', name: t('building.floors.floor1'), available: 9, type: 'apartment' },
+    { id: '+6.15', name: t('building.floors.floor2'), available: 9, type: 'apartment' },
+    { id: '+9.20', name: t('building.floors.floor3'), available: 9, type: 'apartment' }
   ];
+
+  // const parkingSpaces = [
+  //   { id: 1, number: 'P001', type: 'Standard', price: 15000, available: true },
+  //   { id: 2, number: 'P002', type: 'Standard', price: 15000, available: true },
+  //   { id: 3, number: 'P003', type: 'Standard', price: 15000, available: true },
+  //   { id: 4, number: 'P004', type: 'Standard', price: 15000, available: true },
+  //   { id: 5, number: 'P005', type: 'Standard', price: 15000, available: true },
+  //   { id: 6, number: 'P006', type: 'Standard', price: 15000, available: true },
+  //   { id: 7, number: 'P007', type: 'Standard', price: 15000, available: true },
+  //   { id: 8, number: 'P008', type: 'Standard', price: 15000, available: true },
+  //   { id: 9, number: 'P009', type: 'Standard', price: 15000, available: true },
+  //   { id: 10, number: 'P010', type: 'Standard', price: 15000, available: true },
+  //   { id: 11, number: 'P011', type: 'Standard', price: 15000, available: true },
+  //   { id: 12, number: 'P012', type: 'Standard', price: 15000, available: true },
+  //   { id: 13, number: 'P013', type: 'Standard', price: 15000, available: true },
+  //   { id: 14, number: 'P014', type: 'Standard', price: 15000, available: true },
+  //   { id: 15, number: 'P015', type: 'Standard', price: 15000, available: true },
+  //   { id: 16, number: 'P016', type: 'Standard', price: 15000, available: true },
+  //   { id: 17, number: 'P017', type: 'Standard', price: 15000, available: true },
+  //   { id: 18, number: 'P018', type: 'Standard', price: 15000, available: true },
+  //   { id: 19, number: 'P019', type: 'Standard', price: 15000, available: true },
+  //   { id: 20, number: 'P020', type: 'Standard', price: 15000, available: true },
+  //   { id: 21, number: 'P021', type: 'Standard', price: 15000, available: true },
+  //   { id: 22, number: 'P022', type: 'Standard', price: 15000, available: true },
+  //   { id: 23, number: 'P023', type: 'Standard', price: 15000, available: true },
+  //   { id: 24, number: 'P024', type: 'Standard', price: 15000, available: true },
+  //   { id: 25, number: 'P025', type: 'Standard', price: 15000, available: true },
+  //   { id: 26, number: 'P026', type: 'Standard', price: 15000, available: true },
+  //   { id: 27, number: 'P027', type: 'Standard', price: 15000, available: true }
+  // ];
+
+  // const garageSpaces = [
+  //   { id: 1, number: 'G001', type: 'Garage', price: 25000, available: true },
+  //   { id: 2, number: 'G002', type: 'Garage', price: 25000, available: true },
+  //   { id: 3, number: 'G003', type: 'Garage', price: 25000, available: true },
+  //   { id: 4, number: 'G004', type: 'Garage', price: 25000, available: true },
+  //   { id: 5, number: 'G005', type: 'Garage', price: 25000, available: true },
+  //   { id: 6, number: 'G006', type: 'Garage', price: 25000, available: true },
+  //   { id: 7, number: 'G007', type: 'Garage', price: 25000, available: true },
+  //   { id: 8, number: 'G008', type: 'Garage', price: 25000, available: true },
+  //   { id: 9, number: 'G009', type: 'Garage', price: 25000, available: true },
+  //   { id: 10, number: 'G010', type: 'Garage', price: 25000, available: true },
+  //   { id: 11, number: 'G011', type: 'Garage', price: 25000, available: true },
+  //   { id: 12, number: 'G012', type: 'Garage', price: 25000, available: true },
+  //   { id: 13, number: 'G013', type: 'Garage', price: 25000, available: true },
+  //   { id: 14, number: 'G014', type: 'Garage', price: 25000, available: true },
+  //   { id: 15, number: 'G015', type: 'Garage', price: 25000, available: true },
+  //   { id: 16, number: 'G016', type: 'Garage', price: 25000, available: true },
+  //   { id: 17, number: 'G017', type: 'Garage', price: 25000, available: true },
+  //   { id: 18, number: 'G018', type: 'Garage', price: 25000, available: true },
+  //   { id: 19, number: 'G019', type: 'Garage', price: 25000, available: true },
+  //   { id: 20, number: 'G020', type: 'Garage', price: 25000, available: true },
+  //   { id: 21, number: 'G021', type: 'Garage', price: 25000, available: true },
+  //   { id: 22, number: 'G022', type: 'Garage', price: 25000, available: true },
+  //   { id: 23, number: 'G023', type: 'Garage', price: 25000, available: true },
+  //   { id: 24, number: 'G024', type: 'Garage', price: 25000, available: true }
+  // ];
 
   const apartments = {
     '+3.10': [
@@ -26,32 +79,33 @@ const Apartments = () => {
       { id: 3, area: 110, bedrooms: 3, price: 165000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
       { id: 4, area: 75, bedrooms: 1, price: 105000, balcony: false, floor: '+3.10', floorPlan: '/+3.10.pdf' },
       { id: 5, area: 90, bedrooms: 2, price: 135000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
-      { id: 6, area: 100, bedrooms: 2, price: 155000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' }
+      { id: 6, area: 100, bedrooms: 2, price: 155000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
+      { id: 7, area: 88, bedrooms: 2, price: 135000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
+      { id: 8, area: 92, bedrooms: 2, price: 140000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
+      { id: 9, area: 105, bedrooms: 3, price: 160000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' }
     ],
     '+6.15': [
-      { id: 7, area: 88, bedrooms: 2, price: 135000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 8, area: 98, bedrooms: 2, price: 155000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 9, area: 115, bedrooms: 3, price: 175000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 10, area: 78, bedrooms: 1, price: 115000, balcony: false, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 11, area: 92, bedrooms: 2, price: 145000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 12, area: 102, bedrooms: 2, price: 165000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' }
+      { id: 10, area: 88, bedrooms: 2, price: 135000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
+      { id: 11, area: 98, bedrooms: 2, price: 155000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
+      { id: 12, area: 115, bedrooms: 3, price: 175000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
+      { id: 13, area: 78, bedrooms: 1, price: 115000, balcony: false, floor: '+6.15', floorPlan: '/+6.15.pdf' },
+      { id: 14, area: 92, bedrooms: 2, price: 145000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
+      { id: 15, area: 102, bedrooms: 2, price: 165000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
+      { id: 16, area: 86, bedrooms: 2, price: 130000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
+      { id: 17, area: 94, bedrooms: 2, price: 150000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
+      { id: 18, area: 108, bedrooms: 3, price: 170000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' }
     ],
     '+9.20': [
-      { id: 13, area: 90, bedrooms: 2, price: 145000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 14, area: 100, bedrooms: 2, price: 165000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 15, area: 120, bedrooms: 3, price: 185000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 16, area: 80, bedrooms: 1, price: 125000, balcony: false, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 17, area: 95, bedrooms: 2, price: 155000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 18, area: 105, bedrooms: 2, price: 175000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' }
+      { id: 19, area: 90, bedrooms: 2, price: 145000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
+      { id: 20, area: 100, bedrooms: 2, price: 165000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
+      { id: 21, area: 120, bedrooms: 3, price: 185000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
+      { id: 22, area: 80, bedrooms: 1, price: 125000, balcony: false, floor: '+9.20', floorPlan: '/+9.20.pdf' },
+      { id: 23, area: 95, bedrooms: 2, price: 155000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
+      { id: 24, area: 105, bedrooms: 2, price: 175000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
+      { id: 25, area: 87, bedrooms: 2, price: 140000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
+      { id: 26, area: 97, bedrooms: 2, price: 160000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
+      { id: 27, area: 112, bedrooms: 3, price: 180000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' }
     ],
-    '+12.25': [
-      { id: 19, area: 95, bedrooms: 2, price: 165000, balcony: true, floor: '+12.25', floorPlan: '/+12.25.pdf' },
-      { id: 20, area: 105, bedrooms: 2, price: 185000, balcony: true, floor: '+12.25', floorPlan: '/+12.25.pdf' },
-      { id: 21, area: 125, bedrooms: 3, price: 205000, balcony: true, floor: '+12.25', floorPlan: '/+12.25.pdf' },
-      { id: 22, area: 85, bedrooms: 1, price: 145000, balcony: false, floor: '+12.25', floorPlan: '/+12.25.pdf' },
-      { id: 23, area: 100, bedrooms: 2, price: 175000, balcony: true, floor: '+12.25', floorPlan: '/+12.25.pdf' },
-      { id: 24, area: 110, bedrooms: 2, price: 195000, balcony: true, floor: '+12.25', floorPlan: '/+12.25.pdf' }
-    ]
   };
 
   const handleViewApartment = () => {
@@ -67,15 +121,14 @@ const Apartments = () => {
       <div className="container">
         <motion.div
           className="apartments-content"
-          ref={ref}
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <div className="apartments-header">
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               🏠 {t('apartments.title')}
@@ -85,29 +138,122 @@ const Apartments = () => {
           <motion.div
             className="floor-selector"
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {floors.map((floor) => (
+            {tabs.map((tab) => (
               <button
-                key={floor.id}
-                className={`floor-btn ${selectedFloor === floor.id ? 'active' : ''}`}
-                onClick={() => setSelectedFloor(floor.id)}
+                key={tab.id}
+                className={`floor-btn ${selectedTab === tab.id ? 'active' : ''}`}
+                onClick={() => setSelectedTab(tab.id)}
               >
-                <span className="floor-name">{floor.name}</span>
-                <span className="floor-available">{floor.available} available</span>
+                <span className="floor-name">{tab.name}</span>
+                <span className="floor-available">{tab.available} {t('building.availability.available')}</span>
               </button>
             ))}
           </motion.div>
+
+          {selectedTab === 'parking' && (
+            <motion.div
+              className="pricing-info"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <h3>Парко места от 17 хил.евро без ддс</h3>
+            </motion.div>
+          )}
+
+          {selectedTab === 'garage' && (
+            <motion.div
+              className="pricing-info"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <h3>Гаражи от 20 хил.евро без ддс</h3>
+            </motion.div>
+          )}
+
+          {selectedTab !== 'parking' && selectedTab !== 'garage' && (
+            <motion.div
+              className="pricing-info"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <h3>Сега на зелено 1400 евро/кв.м без ддс ( при 20% първоначално плащане )</h3>
+              <div className="payment-schedule">
+                <p>На акт 14 - 60 %</p>
+                <p>На акт 15 - 10 %</p>
+                <p>На акт 16 - 10 %</p>
+              </div>
+              <p className="discount-info">При плащане на 50% или повече първоначално цена от 1350 евро/кв м без ддс )</p>
+            </motion.div>
+          )}
 
           <motion.div
             className="apartments-grid"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            key={selectedFloor}
+            key={selectedTab}
           >
-            {apartments[selectedFloor as keyof typeof apartments]?.map((apartment, index) => (
+            {selectedTab === 'parking' && (
+              <div className="parking-garage-container">
+                  <div className="pdf-card">
+                    <div className="pdf-header">
+                      <h3>{t('apartments.parkingSpacesPlan')}</h3>
+                      <p>{t('apartments.parkingSpacesAvailable')}</p>
+                    </div>
+                  <div className="pdf-viewer">
+                    <iframe
+                      src="/+0.00.pdf"
+                      title={t('apartments.parkingPlan')}
+                      className="pdf-iframe"
+                      loading="lazy"
+                    />
+                    <div className="pdf-overlay">
+                      <button 
+                        className="view-pdf-btn"
+                        onClick={() => window.open('/+0.00.pdf', '_blank')}
+                      >
+                        Отвори пълен план
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {selectedTab === 'garage' && (
+              <div className="parking-garage-container">
+                  <div className="pdf-card">
+                    <div className="pdf-header">
+                      <h3>{t('apartments.garagePlanTitle')}</h3>
+                      <p>{t('apartments.garageSpacesAvailable')}</p>
+                    </div>
+                  <div className="pdf-viewer">
+                    <iframe
+                      src="/+0.00.pdf"
+                      title={t('apartments.garagePlan')}
+                      className="pdf-iframe"
+                      loading="lazy"
+                    />
+                    <div className="pdf-overlay">
+                      <button 
+                        className="view-pdf-btn"
+                        onClick={() => window.open('/+0.00.pdf', '_blank')}
+                      >
+                        Отвори пълен план
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {selectedTab !== 'parking' && selectedTab !== 'garage' && apartments[selectedTab as keyof typeof apartments]?.map((apartment, index) => (
               <motion.div
                 key={apartment.id}
                 className="apartment-card"
@@ -128,18 +274,18 @@ const Apartments = () => {
                       loading="lazy"
                     />
                     <div className="floor-plan-overlay">
-                      <span className="floor-plan-label">Floor Plan</span>
+                      <span className="floor-plan-label">{t('apartments.floorPlan')}</span>
                       <button 
                         className="view-floor-plan-btn"
                         onClick={() => window.open(apartment.floorPlan, '_blank')}
                         aria-label={`View full floor plan for ${apartment.floor}`}
                       >
-                        View Full Plan
+                        {t('apartments.viewFullPlan')}
                       </button>
                     </div>
                   </div>
                   {apartment.balcony && (
-                    <div className="balcony-badge">Balcony</div>
+                    <div className="balcony-badge">{t('apartments.balcony')}</div>
                   )}
                 </div>
                 
@@ -164,10 +310,6 @@ const Apartments = () => {
                     </div>
                   </div>
                   
-                  <div className="apartment-price">
-                    <span className="price-label">{t('apartments.price')}</span>
-                    <span className="price-value">€{apartment.price.toLocaleString()}</span>
-                  </div>
                   
                   <button 
                     className="btn btn-primary apartment-btn"

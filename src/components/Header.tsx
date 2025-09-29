@@ -44,7 +44,8 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <h2>Luxury Living</h2>
+            <img src="/logo.png" alt="Forest residence Sofia" className="logo-image" />
+            <h2>Forest residence Sofia</h2>
           </motion.div>
 
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>

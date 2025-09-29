@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Building3D from './Building3D';
 import './BuildingOverview.scss';
 
 const BuildingOverview = () => {
@@ -16,31 +17,31 @@ const BuildingOverview = () => {
     {
       icon: '🏢',
       title: t('building.floors.ground'),
-      description: 'Secure underground parking with direct elevator access',
+      description: t('building.floorDescriptions.ground'),
       floorPlan: '/+0.00.pdf'
     },
     {
       icon: '🏠',
       title: t('building.floors.floor1'),
-      description: 'Modern residential units with premium finishes',
+      description: t('building.floorDescriptions.floor1'),
       floorPlan: '/+3.10.pdf'
     },
     {
       icon: '🏠',
       title: t('building.floors.floor2'),
-      description: 'Spacious apartments with panoramic city views',
+      description: t('building.floorDescriptions.floor2'),
       floorPlan: '/+6.15.pdf'
     },
     {
       icon: '🏠',
       title: t('building.floors.floor3'),
-      description: 'Luxury living spaces with private balconies',
+      description: t('building.floorDescriptions.floor3'),
       floorPlan: '/+9.20.pdf'
     },
     {
       icon: '🏠',
       title: t('building.floors.floor4'),
-      description: 'Penthouse-level apartments with premium amenities',
+      description: t('building.floorDescriptions.floor4'),
       floorPlan: '/+12.25.pdf'
     }
   ];
@@ -118,6 +119,9 @@ const BuildingOverview = () => {
             </div>
           </motion.div>
 
+          {/* 3D Building Model */}
+          <Building3D />
+
           <motion.div
             className="architectural-plan"
             initial={{ opacity: 0, y: 30 }}
@@ -126,54 +130,108 @@ const BuildingOverview = () => {
           >
             <h3>🏗️ Архитектурна визуализация</h3>
             <div className="plan-images">
-              <div 
-                className="plan-image"
-                onClick={() => window.open('/3.png', '_blank')}
-                style={{ cursor: 'pointer' }}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    window.open('/3.png', '_blank');
-                  }
-                }}
-                aria-label="View full size building facade view 1"
-              >
-                <img
-                  src="/3.png"
-                  alt="Building facade view 1"
-                  loading="lazy"
-                  width="800"
-                  height="600"
-                />
-                <div className="image-overlay">
-                  <span>Click to view full size</span>
+              <div className="plan-images-row">
+                <div 
+                  className="plan-image"
+                  onClick={() => window.open('/1.jpg', '_blank')}
+                  style={{ cursor: 'pointer' }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      window.open('/1.jpg', '_blank');
+                    }
+                  }}
+                  aria-label="View full size building facade view 1"
+                >
+                  <img
+                    src="/1.jpg"
+                    alt="Building facade view 1"
+                    loading="lazy"
+                    width="400"
+                    height="300"
+                  />
+                  <div className="image-overlay">
+                    <span>Click to view full size</span>
+                  </div>
+                </div>
+                <div 
+                  className="plan-image"
+                  onClick={() => window.open('/2.jpg', '_blank')}
+                  style={{ cursor: 'pointer' }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      window.open('/2.jpg', '_blank');
+                    }
+                  }}
+                  aria-label="View full size building facade view 2"
+                >
+                  <img
+                    src="/2.jpg"
+                    alt="Building facade view 2"
+                    loading="lazy"
+                    width="400"
+                    height="300"
+                  />
+                  <div className="image-overlay">
+                    <span>Click to view full size</span>
+                  </div>
                 </div>
               </div>
-              <div 
-                className="plan-image"
-                onClick={() => window.open('/5.png', '_blank')}
-                style={{ cursor: 'pointer' }}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    window.open('/5.png', '_blank');
-                  }
-                }}
-                aria-label="View full size building facade view 2"
-              >
-                <img
-                  src="/5.png"
-                  alt="Building facade view 2"
-                  loading="lazy"
-                  width="800"
-                  height="600"
-                />
-                <div className="image-overlay">
-                  <span>Click to view full size</span>
+              <div className="plan-images-row">
+                <div 
+                  className="plan-image"
+                  onClick={() => window.open('/3.jpg', '_blank')}
+                  style={{ cursor: 'pointer' }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      window.open('/3.jpg', '_blank');
+                    }
+                  }}
+                  aria-label="View full size building facade view 3"
+                >
+                  <img
+                    src="/3.jpg"
+                    alt="Building facade view 3"
+                    loading="lazy"
+                    width="400"
+                    height="300"
+                  />
+                  <div className="image-overlay">
+                    <span>Click to view full size</span>
+                  </div>
+                </div>
+                <div 
+                  className="plan-image"
+                  onClick={() => window.open('/4.jpg', '_blank')}
+                  style={{ cursor: 'pointer' }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      window.open('/4.jpg', '_blank');
+                    }
+                  }}
+                  aria-label="View full size building facade view 4"
+                >
+                  <img
+                    src="/4.jpg"
+                    alt="Building facade view 4"
+                    loading="lazy"
+                    width="400"
+                    height="300"
+                  />
+                  <div className="image-overlay">
+                    <span>Click to view full size</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -224,19 +282,23 @@ const BuildingOverview = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             <div className="stat-item">
-              <div className="stat-number">5</div>
+              <div className="stat-number">3</div>
               <div className="stat-label">{t('building.stats.floors')}</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">24</div>
+              <div className="stat-number">27</div>
               <div className="stat-label">{t('building.stats.apartments')}</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">100%</div>
-              <div className="stat-label">{t('amenities.parking')}</div>
+              <div className="stat-number">27</div>
+              <div className="stat-label">Гаража</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">2026</div>
+              <div className="stat-number">24</div>
+              <div className="stat-label">Паркоместа</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">2027</div>
               <div className="stat-label">{t('building.stats.completion')}</div>
             </div>
           </motion.div>

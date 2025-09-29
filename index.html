@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO Meta Tags -->
-    <title>Luxury Living - Вашият нов дом – там, където градът среща планината</title>
+    <title>Forest residence Sofia - Вашият нов дом – там, където градът среща планината</title>
     <meta name="description" content="Живейте в сърцето на града и на крачка от природата. Съвременен дизайн, зелени пространства и удобства за спокойствие и комфорт всеки ден." />
     <meta name="keywords" content="апартаменти, луксозни жилища, ново строителство, София, недвижими имоти" />
-    <meta name="author" content="Luxury Living" />
+    <meta name="author" content="Forest residence Sofia" />
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Luxury Living - Вашият нов дом – там, където градът среща планината" />
+    <meta property="og:title" content="Forest residence Sofia - Вашият нов дом – там, където градът среща планината" />
     <meta property="og:description" content="Живейте в сърцето на града и на крачка от природата. Съвременен дизайн, зелени пространства и удобства за спокойствие и комфорт всеки ден." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://luxuryliving.bg" />
@@ -23,7 +23,7 @@
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Luxury Living - Вашият нов дом – там, където градът среща планината" />
+    <meta name="twitter:title" content="Forest residence Sofia - Вашият нов дом – там, където градът среща планината" />
     <meta name="twitter:description" content="Живейте в сърцето на града и на крачка от природата. Съвременен дизайн, зелени пространства и удобства за спокойствие и комфорт всеки ден." />
     <meta name="twitter:image" content="/3.png" />
     
@@ -33,9 +33,41 @@
     <link rel="canonical" href="https://luxuryliving.bg" />
     
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="/3.png" as="image" />
-    <link rel="preload" href="/5.png" as="image" />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" as="style" />
+    <link rel="preload" href="/3.jpg" as="image" fetchpriority="high" />
+    <link rel="preload" href="/4.jpg" as="image" fetchpriority="high" />
+    <link rel="preload" href="/29.09.2025 г..glb" as="fetch" crossorigin />
+    
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Optimize font loading with display=swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" /></noscript>
+    
+    <!-- Critical CSS -->
+    <style>
+      /* Critical above-the-fold styles */
+      body { margin: 0; font-family: 'Noto Sans', sans-serif; }
+      .hero { min-height: 100vh; position: relative; }
+      .loading-placeholder { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        min-height: 200px; 
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

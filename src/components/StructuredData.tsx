@@ -6,7 +6,7 @@ const StructuredData = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "name": "Luxury Living",
+    "name": "Forest residence Sofia",
     "description": t('hero.subtitle'),
     "url": "https://luxuryliving.bg",
     "logo": "https://luxuryliving.bg/logo.png",

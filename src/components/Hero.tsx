@@ -1,24 +1,22 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { useEffect, useRef } from 'react';
-import { preloadImage } from '../utils/lazyLoad';
+import { preloadImage, preloadImages } from '../utils/lazyLoad';
 import './Hero.scss';
 
 const Hero = () => {
   const { t } = useTranslation();
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
   
   const img1Ref = useRef<HTMLImageElement>(null);
   const img2Ref = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    // Preload critical images
-    preloadImage('/3.png');
-    preloadImage('/5.png');
+    // Preload critical images with high priority
+    preloadImage('/3.jpg', 'high');
+    preloadImage('/4.jpg', 'high');
+    
+    // Preload other hero images in background
+    preloadImages(['/1.jpg', '/2.jpg']).catch(console.warn);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -40,11 +38,13 @@ const Hero = () => {
           >
             <img 
               ref={img1Ref}
-              src="/3.png" 
+              src="/3.jpg" 
               alt="Building facade view 1" 
               loading="eager"
+              fetchPriority="high"
               width="800"
               height="600"
+              decoding="sync"
             />
           </motion.div>
           <motion.div 
@@ -55,11 +55,13 @@ const Hero = () => {
           >
             <img 
               ref={img2Ref}
-              src="/5.png" 
+              src="/4.jpg" 
               alt="Building facade view 2" 
               loading="eager"
+              fetchPriority="high"
               width="800"
               height="600"
+              decoding="sync"
             />
           </motion.div>
         </div>
@@ -67,16 +69,16 @@ const Hero = () => {
       </div>
 
       <div className="container">
-        <div className="hero-content" ref={ref}>
+        <div className="hero-content">
           <motion.div
             className="hero-text"
             initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
             >
               {t('hero.title')}
@@ -85,7 +87,7 @@ const Hero = () => {
             <motion.p
               className="hero-subtitle"
               initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
             >
               {t('hero.subtitle')}
@@ -94,7 +96,7 @@ const Hero = () => {
             <motion.div
               className="hero-actions"
               initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.1 }}
             >
               <button 

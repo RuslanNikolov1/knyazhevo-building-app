@@ -8,11 +8,24 @@
     "title": "About the Building",
     "description": "The building is designed with attention to detail, with a modern facade and functional housing. Each floor offers spacious apartments with optimal layout.",
     "floors": {
-      "ground": "Ground floor (+0.00) - Parking",
+      "ground": "Ground Floor (+0.00) - Parking",
       "floor1": "Floor +3.10",
       "floor2": "Floor +6.15",
       "floor3": "Floor +9.20", 
       "floor4": "Floor +12.25"
+    },
+    "floorDescriptions": {
+      "ground": "Secure underground parking with direct elevator access",
+      "floor1": "Modern residential units with premium finishes",
+      "floor2": "Spacious apartments with panoramic city views",
+      "floor3": "Luxury living spaces with private balconies",
+      "floor4": "Penthouse-level apartments with premium amenities"
+    },
+    "availability": {
+      "parkingSpaces": "Parking spaces",
+      "garage": "Garage",
+      "floor": "Floor",
+      "available": "available"
     },
     "stats": {
       "floors": "FLOORS",
@@ -22,8 +35,17 @@
     "situation": "Building Situation",
     "location": "Location",
     "address": "KnyazhevoVitosha Quarter, Vitoshki Izvori St 4, 1619 Sofia",
-    "expandMap": "Click to expand map",
-    "minimizeMap": "Click to minimize map"
+    "expandMap": "CLICK TO EXPAND THE MAP →",
+    "minimizeMap": "Click to minimize map",
+    "model3d": {
+      "title": "3D Building Model",
+      "description": "Explore the building in 3D - drag to rotate, scroll to zoom",
+      "controls": {
+        "rotate": "Drag to rotate",
+        "zoom": "Scroll to zoom",
+        "touch": "Touch friendly"
+      }
+    }
   },
   "apartments": {
     "title": "Apartments",
@@ -34,7 +56,17 @@
     "price": "Price",
     "balcony": "Balcony",
     "sqm": "sqm",
-    "eur": "EUR"
+    "eur": "EUR",
+    "floorPlan": "Floor Plan",
+    "viewFullPlan": "View Full Plan",
+    "parkingPlan": "Parking Plan",
+    "garagePlan": "Garage Plan",
+    "parkingSpacesAvailable": "24 parking spaces available",
+    "garageSpacesAvailable": "24 garage spaces available",
+    "parkingSpacesPlan": "Parking Spaces - Plan",
+    "garagePlanTitle": "Garage - Plan",
+    "parkingSpaces": "Parking Spaces",
+    "garage": "Garage"
   },
   "amenities": {
     "title": "Amenities & Parking",
@@ -60,7 +92,18 @@
     "message": "Message",
     "submit": "Send inquiry",
     "success": "Inquiry sent successfully!",
-    "error": "An error occurred. Please try again."
+    "error": "An error occurred. Please try again.",
+    "getInTouch": "Get in Touch",
+    "description": "Ready to find your new home? Contact us today to schedule a viewing or get more information about our available apartments.",
+    "address": "Address",
+    "phoneTitle": "Phone",
+    "emailTitle": "Email",
+    "officeHours": "Office Hours",
+    "sending": "Sending...",
+    "addressDetails": ["123 Luxury Street", "Sofia, Bulgaria 1000"],
+    "phoneDetails": ["+359 2 123 4567", "+359 88 123 4567"],
+    "emailDetails": ["info@luxuryliving.bg", "sales@luxuryliving.bg"],
+    "hoursDetails": ["Monday - Friday: 9:00 - 18:00", "Saturday: 10:00 - 16:00"]
   },
   "navigation": {
     "home": "Home",
@@ -71,7 +114,18 @@
   },
   "footer": {
     "rights": "All rights reserved",
-    "luxuryLiving": "Luxury Living"
+    "luxuryLiving": "Forest residence Sofia",
+    "navigation": "Navigation",
+    "contactInfo": "Contact Info",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "accessibility": "Accessibility",
+    "address": "123 Luxury Street, Sofia, Bulgaria",
+    "phone": "+359 2 123 4567",
+    "email": "info@luxuryliving.bg",
+    "hours": "Mon-Fri: 9:00-18:00"
   },
   "construction": {
     "title": "Construction Progress",

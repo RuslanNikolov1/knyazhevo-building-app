@@ -6,10 +6,10 @@
   --primary-light: #7f8c8d;
   --primary-lighter: #bdc3c7;
   
-  // Accent colors - warm and sophisticated
-  --accent-gold: #f39c12;
-  --accent-warm: #e67e22;
-  --accent-blue: #3498db;
+  // Accent colors - brighter pine needle inspired
+  --accent-pine: #5a8a6a;
+  --accent-forest: #3a6b4a;
+  --accent-sage: #7baa8a;
   
   // Neutral colors
   --white: #ffffff;
@@ -188,23 +188,23 @@ main {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
+  background: linear-gradient(135deg, var(--accent-pine), var(--accent-forest));
   color: var(--white);
-  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+  box-shadow: 0 4px 15px rgba(90, 138, 106, 0.3);
   
   &:hover {
-    background: linear-gradient(135deg, var(--accent-warm), var(--accent-gold));
-    box-shadow: 0 8px 30px rgba(243, 156, 18, 0.5), 0 0 20px rgba(243, 156, 18, 0.3);
+    background: linear-gradient(135deg, var(--accent-forest), var(--accent-pine));
+    box-shadow: 0 8px 30px rgba(90, 138, 106, 0.5), 0 0 20px rgba(90, 138, 106, 0.3);
   }
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--primary-dark);
-  border: 2px solid var(--primary-dark);
+  color: var(--accent-pine);
+  border: 2px solid var(--accent-pine);
   
   &:hover {
-    background: var(--primary-dark);
+    background: var(--accent-pine);
     color: var(--white);
   }
 }
@@ -216,7 +216,7 @@ main {
   
   &:hover {
     background: var(--white);
-    color: var(--primary-dark);
+    color: var(--accent-pine);
   }
 }
 
@@ -275,6 +275,47 @@ main {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+// Loading placeholder
+.loading-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+  margin: 2rem 0;
+  color: var(--text-secondary);
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// Optimized image styles
+.optimized-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.optimized-image-skeleton {
+  border-radius: 8px;
+}
+
+.optimized-image-error {
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
 // Utility classes

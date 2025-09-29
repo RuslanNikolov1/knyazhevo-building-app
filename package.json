@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
+    "babylonjs": "^8.29.0",
     "framer-motion": "^12.23.22",
     "i18next": "^25.5.2",
     "i18next-browser-languagedetector": "^8.2.0",
@@ -18,7 +21,8 @@
     "react-i18next": "^16.0.0",
     "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^7.9.3",
-    "sass": "^1.93.2"
+    "sass": "^1.93.2",
+    "three": "^0.180.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

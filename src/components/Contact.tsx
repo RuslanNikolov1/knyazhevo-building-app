@@ -47,23 +47,23 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: '📍',
-      title: 'Address',
-      details: ['123 Luxury Street', 'Sofia, Bulgaria 1000']
+      title: t('contact.address'),
+      details: t('contact.addressDetails', { returnObjects: true }) as string[]
     },
     {
       icon: '📞',
-      title: 'Phone',
-      details: ['+359 2 123 4567', '+359 88 123 4567']
+      title: t('contact.phoneTitle'),
+      details: t('contact.phoneDetails', { returnObjects: true }) as string[]
     },
     {
       icon: '✉️',
-      title: 'Email',
-      details: ['info@luxuryliving.bg', 'sales@luxuryliving.bg']
+      title: t('contact.emailTitle'),
+      details: t('contact.emailDetails', { returnObjects: true }) as string[]
     },
     {
       icon: '🕒',
-      title: 'Office Hours',
-      details: ['Monday - Friday: 9:00 - 18:00', 'Saturday: 10:00 - 16:00']
+      title: t('contact.officeHours'),
+      details: t('contact.hoursDetails', { returnObjects: true }) as string[]
     }
   ];
 
@@ -94,10 +94,9 @@ const Contact = () => {
               animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h3>Get in Touch</h3>
+              <h3>{t('contact.getInTouch')}</h3>
               <p>
-                Ready to find your new home? Contact us today to schedule a viewing 
-                or get more information about our available apartments.
+                {t('contact.description')}
               </p>
 
               <div className="contact-details">
@@ -198,7 +197,7 @@ const Contact = () => {
                   className="btn btn-primary form-submit"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Sending...' : t('contact.submit')}
+                  {isSubmitting ? t('contact.sending') : t('contact.submit')}
                 </button>
               </form>
             </motion.div>

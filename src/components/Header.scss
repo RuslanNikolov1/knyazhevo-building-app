@@ -19,13 +19,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
-  min-height: 80px;
+  padding: 0.5rem 0;
+  min-height: 60px;
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  .logo-image {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+  }
+
   h2 {
-    color: var(--primary-dark);
+    color: #1a3a0a;
     font-size: 1.8rem;
     font-weight: 700;
     font-family: var(--font-heading);
@@ -90,12 +100,12 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-gold);
+    background: var(--accent-pine);
     transition: width var(--transition-medium);
   }
 
   &:hover {
-    color: var(--accent-gold);
+    color: var(--accent-pine);
 
     &::after {
       width: 100%;
@@ -147,7 +157,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(243, 156, 18, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(90, 138, 106, 0.3), transparent);
     transition: left var(--transition-medium);
   }
 
@@ -162,9 +172,9 @@
   }
 
   &.active {
-    background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
+    background: linear-gradient(135deg, var(--accent-pine), var(--accent-forest));
     color: var(--white);
-    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+    box-shadow: 0 4px 15px rgba(90, 138, 106, 0.4);
     transform: scale(1.05);
   }
 
@@ -275,16 +285,16 @@
   width: 100%;
 
   &:hover {
-    border-color: var(--accent-gold);
-    background: rgba(243, 156, 18, 0.1);
+    border-color: var(--accent-pine);
+    background: rgba(90, 138, 106, 0.1);
     transform: translateX(4px);
   }
 
   &.active {
-    background: var(--accent-gold);
-    border-color: var(--accent-gold);
+    background: var(--accent-pine);
+    border-color: var(--accent-pine);
     color: var(--white);
-    box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+    box-shadow: 0 2px 8px rgba(90, 138, 106, 0.3);
   }
 }
 
@@ -337,7 +347,7 @@
   }
 
   &:hover {
-    background: rgba(243, 156, 18, 0.05);
+    background: rgba(90, 138, 106, 0.05);
     transform: translateX(4px);
 
     &::before {
@@ -346,9 +356,9 @@
   }
 
   &.active {
-    background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
+    background: linear-gradient(135deg, var(--accent-pine), var(--accent-forest));
     color: var(--white);
-    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+    box-shadow: 0 4px 15px rgba(90, 138, 106, 0.3);
 
     &::before {
       background: rgba(0, 0, 0, 0.3);

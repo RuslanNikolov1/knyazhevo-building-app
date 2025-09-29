@@ -21,6 +21,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="footer-brand">
+              <img src="/logo-white.png" alt="Forest residence Sofia" className="footer-logo" />
               <h3>{t('footer.luxuryLiving')}</h3>
               <p>
                 {t('hero.subtitle')}
@@ -29,7 +30,7 @@ const Footer = () => {
 
             <div className="footer-links">
               <div className="footer-section">
-                <h4>Navigation</h4>
+                <h4>{t('footer.navigation')}</h4>
                 <ul>
                   <li>
                     <button onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })}>
@@ -60,22 +61,22 @@ const Footer = () => {
               </div>
 
               <div className="footer-section">
-                <h4>Contact Info</h4>
+                <h4>{t('footer.contactInfo')}</h4>
                 <ul>
-                  <li>📍 123 Luxury Street, Sofia, Bulgaria</li>
-                  <li>📞 +359 2 123 4567</li>
-                  <li>✉️ info@luxuryliving.bg</li>
-                  <li>🕒 Mon-Fri: 9:00-18:00</li>
+                  <li>📍 {t('footer.address')}</li>
+                  <li>📞 {t('footer.phone')}</li>
+                  <li>✉️ {t('footer.email')}</li>
+                  <li>🕒 {t('footer.hours')}</li>
                 </ul>
               </div>
 
               <div className="footer-section">
-                <h4>Legal</h4>
+                <h4>{t('footer.legal')}</h4>
                 <ul>
-                  <li><a href="#privacy">Privacy Policy</a></li>
-                  <li><a href="#terms">Terms of Service</a></li>
-                  <li><a href="#cookies">Cookie Policy</a></li>
-                  <li><a href="#accessibility">Accessibility</a></li>
+                  <li><a href="#privacy">{t('footer.privacyPolicy')}</a></li>
+                  <li><a href="#terms">{t('footer.termsOfService')}</a></li>
+                  <li><a href="#cookies">{t('footer.cookiePolicy')}</a></li>
+                  <li><a href="#accessibility">{t('footer.accessibility')}</a></li>
                 </ul>
               </div>
             </div>
