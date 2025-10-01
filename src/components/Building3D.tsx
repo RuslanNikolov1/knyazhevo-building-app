@@ -1,13 +1,12 @@
 import { Suspense, useRef, useEffect, memo, useState } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
-import { OrbitControls, Environment, useGLTF } from '@react-three/drei';
+import { Environment, useGLTF } from '@react-three/drei';
 import { motion } from 'framer-motion';
 // Import only what we need from Three.js to reduce bundle size
 import { 
   Group, 
   Mesh, 
-  Vector3,
-  Camera
+  Vector3
 } from 'three';
 import './Building3D.scss';
 
@@ -76,7 +75,6 @@ const BuildingModel = memo(() => {
       scale={[250, 250, 250]} 
       position={[0, -155, 0]}
       onPointerDown={handleMouseDown}
-      style={{ cursor: 'grab' }}
     >
       <primitive object={scene} />
     </group>
