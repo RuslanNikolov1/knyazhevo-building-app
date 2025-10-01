@@ -324,7 +324,7 @@ const BuildingOverview = () => {
             <div className="stat-item stat-completion">
               <div className="stat-number">2027</div>
               <div className="stat-label">{t('building.stats.completion')}</div>
-              <img src={`/stats-completion-time.png?v=${cacheBuster}`} alt="Completion" className="stat-image" />
+              <img src={`/stats-completion.png?v=${cacheBuster}`} alt="Completion" className="stat-image" />
             </div>
           </motion.div>
 

@@ -472,8 +472,9 @@
   width: 100%;
   height: 80px;
   object-fit: contain;
-  border-radius: 8px;
-  box-shadow: var(--shadow-light);
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
   transition: transform var(--transition-medium);
   margin-top: 1rem;
 
