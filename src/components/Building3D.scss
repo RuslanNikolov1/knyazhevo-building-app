@@ -32,8 +32,8 @@
   background: var(--white);
   margin-bottom: 2rem;
   transition: all var(--transition-medium);
-  height: 85vh;
-  min-height: 500px;
+  height: 60vh;
+  min-height: 400px;
 
   &:hover {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
@@ -61,9 +61,9 @@
     align-items: center;
     gap: 0.5rem;
     color: var(--text-secondary);
-    font-size: 0.9rem;
+      font-size: 0.95rem;
     background: var(--light-gray);
-    padding: 0.5rem 1rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 20px;
     transition: all var(--transition-fast);
 
@@ -73,7 +73,7 @@
     }
 
     .icon {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
   }
 }
@@ -95,8 +95,8 @@
   }
 
   .building-3d-viewer {
-    height: 70vh;
-    min-height: 400px;
+    height: 50vh;
+    min-height: 300px;
     
     canvas {
       height: 100% !important;
@@ -109,7 +109,7 @@
     align-items: center;
 
     .info-item {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       padding: 0.4rem 0.8rem;
     }
   }
@@ -117,8 +117,8 @@
 
 @media (max-width: 480px) {
   .building-3d-viewer {
-    height: 60vh;
-    min-height: 300px;
+    height: 40vh;
+    min-height: 250px;
     
     canvas {
       height: 100% !important;

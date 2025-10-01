@@ -7,9 +7,12 @@ import './BuildingOverview.scss';
 
 const BuildingOverview = () => {
   const { t } = useTranslation();
+  // Cache buster to force latest public images
+  const cacheBuster = Date.now();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0,
+    rootMargin: '50px 0px'
   });
   const [isMapExpanded, setIsMapExpanded] = useState(true);
 
@@ -18,31 +21,29 @@ const BuildingOverview = () => {
       icon: '🏢',
       title: t('building.floors.ground'),
       description: t('building.floorDescriptions.ground'),
-      floorPlan: '/+0.00.pdf'
+      floorPlan: '/+0.00.pdf',
+      image: '/+0.00.pdf'
     },
     {
       icon: '🏠',
       title: t('building.floors.floor1'),
       description: t('building.floorDescriptions.floor1'),
-      floorPlan: '/+3.10.pdf'
+      floorPlan: '/+3.10.pdf',
+      image: '/+3.10.pdf'
     },
     {
       icon: '🏠',
       title: t('building.floors.floor2'),
       description: t('building.floorDescriptions.floor2'),
-      floorPlan: '/+6.15.pdf'
+      floorPlan: '/+6.15.pdf',
+      image: '/+6.15.pdf'
     },
     {
       icon: '🏠',
       title: t('building.floors.floor3'),
       description: t('building.floorDescriptions.floor3'),
-      floorPlan: '/+9.20.pdf'
-    },
-    {
-      icon: '🏠',
-      title: t('building.floors.floor4'),
-      description: t('building.floorDescriptions.floor4'),
-      floorPlan: '/+12.25.pdf'
+      floorPlan: '/+9.20.pdf',
+      image: '/+9.20.pdf'
     }
   ];
 
@@ -87,7 +88,7 @@ const BuildingOverview = () => {
               onClick={() => !isMapExpanded && setIsMapExpanded(true)}
             >
               <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=23.225933%2C42.648487%2C23.231933%2C42.658487&layer=mapnik&marker=42.653487%2C23.228933"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.5!2d23.228933!3d42.653489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa86b5c5c5c5c5%3A0x5c5c5c5c5c5c5c5c!2sVitoshki%20Izvori%204%2C%20Knyazhevo%2C%20Sofia!5e0!3m2!1sen!2sbg!4v1234567890123!5m2!1sen!2sbg"
                 width="100%"
                 height={isMapExpanded ? "400" : "200"}
                 style={{ border: 0 }}
@@ -237,8 +238,15 @@ const BuildingOverview = () => {
             </div>
           </motion.div>
 
-          <div className="building-features">
-            {features.map((feature, index) => (
+          <motion.div
+            className="building-features"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <h3 className="features-title">🏢 Floors</h3>
+            <div className="features-grid">
+              {features.map((feature, index) => (
               <motion.div
                 key={index}
                 className="feature-card"
@@ -261,19 +269,31 @@ const BuildingOverview = () => {
                 }}
                 aria-label={`View floor plan for ${feature.title}`}
               >
-                <div className="feature-icon">
-                  <span>{feature.icon}</span>
+                <div className="feature-header">
+                  <div className="feature-icon">
+                    <span>{feature.icon}</span>
+                  </div>
+                  <h3>{feature.title}</h3>
+                </div>
+                <div className="feature-image">
+                  <iframe
+                    src={`${feature.image}#toolbar=0&navpanes=0&scrollbar=0&zoom=FitH`}
+                    title={`Floor plan for ${feature.title}`}
+                    className="floor-plan-pdf"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="feature-content">
-                  <h3>{feature.title}</h3>
                   <p>{feature.description}</p>
                   <div className="view-plan-hint">
-                    <span>{t('building.expandMap')} →</span>
+                    <span>CLICK TO EXPAND THE MAP →</span>
                   </div>
                 </div>
               </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </motion.div>
+
 
           <motion.div
             className="building-stats"
@@ -281,25 +301,30 @@ const BuildingOverview = () => {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
-            <div className="stat-item">
+            <div className="stat-item stat-floors">
               <div className="stat-number">3</div>
               <div className="stat-label">{t('building.stats.floors')}</div>
+              <img src={`/stats-floors.png?v=${cacheBuster}`} alt="Floors" className="stat-image" />
             </div>
-            <div className="stat-item">
+            <div className="stat-item stat-apartments">
               <div className="stat-number">27</div>
               <div className="stat-label">{t('building.stats.apartments')}</div>
+              <img src={`/stats-apartments.png?v=${cacheBuster}`} alt="Apartments" className="stat-image" />
             </div>
-            <div className="stat-item">
+            <div className="stat-item stat-garages">
               <div className="stat-number">27</div>
               <div className="stat-label">Гаража</div>
+              <img src={`/stats-garages.png?v=${cacheBuster}`} alt="Garages" className="stat-image" />
             </div>
-            <div className="stat-item">
+            <div className="stat-item stat-parking">
               <div className="stat-number">24</div>
               <div className="stat-label">Паркоместа</div>
+              <img src={`/stats-parking-space.png?v=${cacheBuster}`} alt="Parking" className="stat-image" />
             </div>
-            <div className="stat-item">
+            <div className="stat-item stat-completion">
               <div className="stat-number">2027</div>
               <div className="stat-label">{t('building.stats.completion')}</div>
+              <img src={`/stats-completion-time.png?v=${cacheBuster}`} alt="Completion" className="stat-image" />
             </div>
           </motion.div>
 

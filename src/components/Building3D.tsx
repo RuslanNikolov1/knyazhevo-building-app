@@ -1,12 +1,13 @@
-import { Suspense, useRef, useEffect, memo } from 'react';
-import { Canvas } from '@react-three/fiber';
+import { Suspense, useRef, useEffect, memo, useState } from 'react';
+import { Canvas, useThree } from '@react-three/fiber';
 import { OrbitControls, Environment, useGLTF } from '@react-three/drei';
 import { motion } from 'framer-motion';
 // Import only what we need from Three.js to reduce bundle size
 import { 
   Group, 
   Mesh, 
-  Vector3
+  Vector3,
+  Camera
 } from 'three';
 import './Building3D.scss';
 
@@ -14,6 +15,36 @@ import './Building3D.scss';
 const BuildingModel = memo(() => {
   const { scene } = useGLTF('/29.09.2025 г..glb');
   const modelRef = useRef<Group>(null);
+  const [rotationAngle, setRotationAngle] = useState(0);
+
+  // --- Instead of OrbitControls, rotate the building group ---
+  const rotateBuilding = (angle: number) => {
+    // Rotate around Y-axis (horizontal rotation)
+    if (modelRef.current) {
+      modelRef.current.rotation.y = angle;
+    }
+  };
+
+  // Handle mouse drag for rotation
+  const handleMouseDown = (event: React.MouseEvent) => {
+    const startX = event.clientX;
+    const startRotation = rotationAngle;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const deltaX = e.clientX - startX;
+      const newAngle = startRotation + deltaX * 0.01; // Adjust sensitivity
+      setRotationAngle(newAngle);
+      rotateBuilding(newAngle);
+    };
+
+    const handleMouseUp = () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+  };
 
   // Optimize the model on load
   useEffect(() => {
@@ -40,11 +71,36 @@ const BuildingModel = memo(() => {
   }, [scene]);
 
   return (
-    <group ref={modelRef} scale={[250, 250, 250]} position={[0, -155, 0]}>
+    <group 
+      ref={modelRef} 
+      scale={[250, 250, 250]} 
+      position={[0, -155, 0]}
+      onPointerDown={handleMouseDown}
+      style={{ cursor: 'grab' }}
+    >
       <primitive object={scene} />
     </group>
   );
 });
+
+// Camera Setup Component
+const CameraSetup = () => {
+  const { camera } = useThree();
+
+  useEffect(() => {
+    // --- Camera setup ---
+    // Put the camera closer to the building, at second floor height
+    const secondFloorHeight = -149;
+
+    // Move a bit farther away — 180 is a nice middle ground
+    camera.position.set(0, secondFloorHeight, 180);
+
+    // Always look at the building's center/facade
+    camera.lookAt(0, secondFloorHeight, 0);
+  }, [camera]);
+
+  return null;
+};
 
 // Landscape Component - Memoized for performance
 const Landscape = memo(() => {
@@ -277,9 +333,11 @@ function Building3D() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
+      <div className="building-3d-header">
+        <h3>🧊 3D Model</h3>
+      </div>
       <div className="building-3d-viewer">
         <Canvas
-          camera={{ position: [250, 350, 250], fov: 60 }}
           shadows
           gl={{ 
             antialias: false, 
@@ -303,6 +361,9 @@ function Building3D() {
           <directionalLight position={[-400, 400, -200]} intensity={8.0} />
           <pointLight position={[0, 600, 0]} intensity={6.0} distance={4000} />
 
+          {/* Camera Setup */}
+          <CameraSetup />
+
           {/* Environment */}
           <Environment preset="sunset" />
 
@@ -319,17 +380,13 @@ function Building3D() {
           {/* Landscape */}
           <Landscape />
 
-          {/* Controls - No Zoom */}
-          <OrbitControls
-            enableZoom={false}
-            enablePan={true}
-            minDistance={250}
-            maxDistance={250}
-            target={[0, -155, 0]}
-            enableDamping={true}
-            dampingFactor={0.05}
-          />
         </Canvas>
+      </div>
+      <div className="building-3d-info">
+        <div className="info-item" aria-live="polite">
+          <span className="icon">🔄</span>
+          <span>Drag to rotate the 3D model</span>
+        </div>
       </div>
     </motion.div>
   );

@@ -189,7 +189,7 @@ const Amenities = () => {
             transition={{ duration: 0.8, delay: 1.6 }}
           >
             <div className="highlight-content">
-              <h3>{t('premium.title')}</h3>
+              <h3>💎 {t('premium.title')} 💎</h3>
               <p>{t('premium.description')}</p>
             </div>
           </motion.div>

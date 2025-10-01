@@ -51,7 +51,7 @@ const Contact = () => {
       details: t('contact.addressDetails', { returnObjects: true }) as string[]
     },
     {
-      icon: '📞',
+      icon: '📱',
       title: t('contact.phoneTitle'),
       details: t('contact.phoneDetails', { returnObjects: true }) as string[]
     },

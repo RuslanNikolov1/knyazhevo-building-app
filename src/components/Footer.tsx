@@ -21,8 +21,10 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="footer-brand">
-              <img src="/logo-white.png" alt="Forest residence Sofia" className="footer-logo" />
-              <h3>{t('footer.luxuryLiving')}</h3>
+              <div className="footer-brand-header">
+                <img src="/logo-white.png" alt="Forest residence Sofia" className="footer-logo" />
+                <h3>Forest residence Sofia</h3>
+              </div>
               <p>
                 {t('hero.subtitle')}
               </p>
@@ -90,20 +92,10 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="footer-copyright">
-              <p>&copy; 2024 {t('footer.luxuryLiving')}. {t('footer.rights')}.</p>
+              <p>© 2025 Forest residence Sofia. Всички права запазени.</p>
             </div>
 
-            <div className="footer-social">
-              <a href="#" aria-label="Facebook">
-                <span>📘</span>
-              </a>
-              <a href="#" aria-label="Instagram">
-                <span>📷</span>
-              </a>
-              <a href="#" aria-label="LinkedIn">
-                <span>💼</span>
-              </a>
-            </div>
+            {/* Social links removed as requested */}
 
             <motion.button
               className="scroll-to-top"
