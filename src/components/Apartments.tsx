@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { openLinkSafely } from '../utils/openLink';
+import { openLinkSafely, isInAppBrowser } from '../utils/openLink';
 import './Apartments.scss';
 
 const Apartments = () => {
@@ -208,12 +208,16 @@ const Apartments = () => {
                       <p>{t('apartments.parkingSpacesAvailable')}</p>
                     </div>
                   <div className="pdf-viewer">
-                    <iframe
-                      src="/+0.00.pdf"
-                      title={t('apartments.parkingPlan')}
-                      className="pdf-iframe"
-                      loading="lazy"
-                    />
+                    {isInAppBrowser() ? (
+                      <div className="pdf-placeholder" />
+                    ) : (
+                      <iframe
+                        src="/+0.00.pdf"
+                        title={t('apartments.parkingPlan')}
+                        className="pdf-iframe"
+                        loading="lazy"
+                      />
+                    )}
                     <div className="pdf-overlay">
                       <button 
                         className="view-pdf-btn"
@@ -235,12 +239,16 @@ const Apartments = () => {
                       <p>{t('apartments.garageSpacesAvailable')}</p>
                     </div>
                   <div className="pdf-viewer">
-                    <iframe
-                      src="/+0.00.pdf"
-                      title={t('apartments.garagePlan')}
-                      className="pdf-iframe"
-                      loading="lazy"
-                    />
+                    {isInAppBrowser() ? (
+                      <div className="pdf-placeholder" />
+                    ) : (
+                      <iframe
+                        src="/+0.00.pdf"
+                        title={t('apartments.garagePlan')}
+                        className="pdf-iframe"
+                        loading="lazy"
+                      />
+                    )}
                     <div className="pdf-overlay">
                       <button 
                         className="view-pdf-btn"
@@ -268,12 +276,16 @@ const Apartments = () => {
               >
                 <div className="apartment-image">
                   <div className="floor-plan-container">
-                    <iframe
-                      src={apartment.floorPlan}
-                      title={`Floor plan for ${apartment.floor}`}
-                      className="floor-plan-pdf"
-                      loading="lazy"
-                    />
+                    {isInAppBrowser() ? (
+                      <div className="pdf-placeholder" />
+                    ) : (
+                      <iframe
+                        src={apartment.floorPlan}
+                        title={`Floor plan for ${apartment.floor}`}
+                        className="floor-plan-pdf"
+                        loading="lazy"
+                      />
+                    )}
                     <div className="floor-plan-overlay">
                       <span className="floor-plan-label">{t('apartments.floorPlan')}</span>
                       <button 

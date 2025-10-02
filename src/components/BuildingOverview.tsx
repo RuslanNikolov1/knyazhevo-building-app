@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Building3D from './Building3D';
-import { openLinkSafely } from '../utils/openLink';
+import { openLinkSafely, isInAppBrowser } from '../utils/openLink';
 import OptimizedImage from './OptimizedImage';
 import './BuildingOverview.scss';
 
@@ -282,12 +282,18 @@ const BuildingOverview = () => {
                   <h3>{feature.title}</h3>
                 </div>
                 <div className="feature-image">
-                  <iframe
-                    src={`${feature.image}#toolbar=0&navpanes=0&scrollbar=0&zoom=FitH`}
-                    title={`Floor plan for ${feature.title}`}
-                    className="floor-plan-pdf"
-                    loading="lazy"
-                  />
+                  {isInAppBrowser() ? (
+                    <div className="pdf-placeholder">
+                      <span>{t('apartments.viewFullPlan')}</span>
+                    </div>
+                  ) : (
+                    <iframe
+                      src={`${feature.image}#toolbar=0&navpanes=0&scrollbar=0&zoom=FitH`}
+                      title={`Floor plan for ${feature.title}`}
+                      className="floor-plan-pdf"
+                      loading="lazy"
+                    />
+                  )}
                 </div>
                 <div className="feature-content">
                   <p>{feature.description}</p>
@@ -344,12 +350,16 @@ const BuildingOverview = () => {
             
             <div className="situation-overview">
               <div className="situation-container">
-                <iframe
-                  src="/SITUACIA.pdf"
-                  title="Building situation and location"
-                  className="situation-pdf"
-                  loading="lazy"
-                />
+                {isInAppBrowser() ? (
+                  <div className="situation-pdf placeholder" />
+                ) : (
+                  <iframe
+                    src="/SITUACIA.pdf"
+                    title="Building situation and location"
+                    className="situation-pdf"
+                    loading="lazy"
+                  />
+                )}
                 <div className="situation-overlay">
                   <button 
                     className="view-situation-btn"

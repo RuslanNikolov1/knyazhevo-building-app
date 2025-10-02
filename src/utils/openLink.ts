@@ -2,13 +2,17 @@
 // In-app browsers often show a confirmation when using target "_blank".
 // We detect common in-app browsers and navigate in the same tab instead.
 
+export function isInAppBrowser(): boolean {
+  const userAgent = navigator.userAgent || '';
+  const isFacebookApp = /FBAN|FBAV|FB_IAB|FBAN\//i.test(userAgent);
+  const isInstagram = /Instagram/i.test(userAgent);
+  const isMessenger = /Messenger/i.test(userAgent) || /FBAN\/.+Messenger/i.test(userAgent);
+  return isFacebookApp || isInstagram || isMessenger;
+}
+
 export function openLinkSafely(url: string): void {
   try {
-    const userAgent = navigator.userAgent || '';
-    const isFacebookApp = /FBAN|FBAV|FB_IAB|FBAN\//i.test(userAgent);
-    const isInstagram = /Instagram/i.test(userAgent);
-    const isMessenger = /Messenger/i.test(userAgent) || /FBAN\/.+Messenger/i.test(userAgent);
-    const isInApp = isFacebookApp || isInstagram || isMessenger;
+    const isInApp = isInAppBrowser();
 
     if (isInApp) {
       window.location.href = url;
