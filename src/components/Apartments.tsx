@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { openLinkSafely } from '../utils/openLink';
 import './Apartments.scss';
 
 const Apartments = () => {
@@ -216,7 +217,7 @@ const Apartments = () => {
                     <div className="pdf-overlay">
                       <button 
                         className="view-pdf-btn"
-                        onClick={() => window.open('/+0.00.pdf', '_blank')}
+                        onClick={() => openLinkSafely('/+0.00.pdf')}
                       >
                         Отвори пълен план
                       </button>
@@ -243,7 +244,7 @@ const Apartments = () => {
                     <div className="pdf-overlay">
                       <button 
                         className="view-pdf-btn"
-                        onClick={() => window.open('/+0.00.pdf', '_blank')}
+                        onClick={() => openLinkSafely('/+0.00.pdf')}
                       >
                         Отвори пълен план
                       </button>
@@ -277,7 +278,7 @@ const Apartments = () => {
                       <span className="floor-plan-label">{t('apartments.floorPlan')}</span>
                       <button 
                         className="view-floor-plan-btn"
-                        onClick={() => window.open(apartment.floorPlan, '_blank')}
+                        onClick={() => openLinkSafely(apartment.floorPlan)}
                         aria-label={`View full floor plan for ${apartment.floor}`}
                       >
                         {t('apartments.viewFullPlan')}

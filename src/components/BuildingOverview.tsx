@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Building3D from './Building3D';
+import { openLinkSafely } from '../utils/openLink';
+import OptimizedImage from './OptimizedImage';
 import './BuildingOverview.scss';
 
 const BuildingOverview = () => {
@@ -134,24 +136,25 @@ const BuildingOverview = () => {
               <div className="plan-images-row">
                 <div 
                   className="plan-image"
-                  onClick={() => window.open('/1.jpg', '_blank')}
+                  onClick={() => openLinkSafely('/1.jpg')}
                   style={{ cursor: 'pointer' }}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
-                      window.open('/1.jpg', '_blank');
+                      openLinkSafely('/1.jpg');
                     }
                   }}
                   aria-label="View full size building facade view 1"
                 >
-                  <img
+                  <OptimizedImage
                     src="/1.jpg"
                     alt="Building facade view 1"
+                    width={400}
+                    height={300}
                     loading="lazy"
-                    width="400"
-                    height="300"
+                    sizes="(max-width: 768px) 100vw, 400px"
                   />
                   <div className="image-overlay">
                     <span>Click to view full size</span>
@@ -159,24 +162,25 @@ const BuildingOverview = () => {
                 </div>
                 <div 
                   className="plan-image"
-                  onClick={() => window.open('/2.jpg', '_blank')}
+                  onClick={() => openLinkSafely('/2.jpg')}
                   style={{ cursor: 'pointer' }}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
-                      window.open('/2.jpg', '_blank');
+                      openLinkSafely('/2.jpg');
                     }
                   }}
                   aria-label="View full size building facade view 2"
                 >
-                  <img
+                  <OptimizedImage
                     src="/2.jpg"
                     alt="Building facade view 2"
+                    width={400}
+                    height={300}
                     loading="lazy"
-                    width="400"
-                    height="300"
+                    sizes="(max-width: 768px) 100vw, 400px"
                   />
                   <div className="image-overlay">
                     <span>Click to view full size</span>
@@ -186,24 +190,25 @@ const BuildingOverview = () => {
               <div className="plan-images-row">
                 <div 
                   className="plan-image"
-                  onClick={() => window.open('/3.jpg', '_blank')}
+                  onClick={() => openLinkSafely('/3.jpg')}
                   style={{ cursor: 'pointer' }}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
-                      window.open('/3.jpg', '_blank');
+                      openLinkSafely('/3.jpg');
                     }
                   }}
                   aria-label="View full size building facade view 3"
                 >
-                  <img
+                  <OptimizedImage
                     src="/3.jpg"
                     alt="Building facade view 3"
+                    width={400}
+                    height={300}
                     loading="lazy"
-                    width="400"
-                    height="300"
+                    sizes="(max-width: 768px) 100vw, 400px"
                   />
                   <div className="image-overlay">
                     <span>Click to view full size</span>
@@ -211,24 +216,25 @@ const BuildingOverview = () => {
                 </div>
                 <div 
                   className="plan-image"
-                  onClick={() => window.open('/4.jpg', '_blank')}
+                  onClick={() => openLinkSafely('/4.jpg')}
                   style={{ cursor: 'pointer' }}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
-                      window.open('/4.jpg', '_blank');
+                      openLinkSafely('/4.jpg');
                     }
                   }}
                   aria-label="View full size building facade view 4"
                 >
-                  <img
+                  <OptimizedImage
                     src="/4.jpg"
                     alt="Building facade view 4"
+                    width={400}
+                    height={300}
                     loading="lazy"
-                    width="400"
-                    height="300"
+                    sizes="(max-width: 768px) 100vw, 400px"
                   />
                   <div className="image-overlay">
                     <span>Click to view full size</span>
@@ -257,14 +263,14 @@ const BuildingOverview = () => {
                   y: -5,
                   transition: { duration: 0.2 }
                 }}
-                onClick={() => window.open(feature.floorPlan, '_blank')}
+                onClick={() => openLinkSafely(feature.floorPlan)}
                 style={{ cursor: 'pointer' }}
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    window.open(feature.floorPlan, '_blank');
+                    openLinkSafely(feature.floorPlan);
                   }
                 }}
                 aria-label={`View floor plan for ${feature.title}`}
@@ -304,27 +310,27 @@ const BuildingOverview = () => {
             <div className="stat-item stat-floors">
               <div className="stat-number">3</div>
               <div className="stat-label">{t('building.stats.floors')}</div>
-              <img src={`/stats-floors.png?v=${cacheBuster}`} alt="Floors" className="stat-image" />
+              <OptimizedImage src={`/stats-floors.png?v=${cacheBuster}`} alt="Floors" width={64} height={64} className="stat-image" sizes="64px" />
             </div>
             <div className="stat-item stat-apartments">
               <div className="stat-number">27</div>
               <div className="stat-label">{t('building.stats.apartments')}</div>
-              <img src={`/stats-apartments.png?v=${cacheBuster}`} alt="Apartments" className="stat-image" />
+              <OptimizedImage src={`/stats-apartments.png?v=${cacheBuster}`} alt="Apartments" width={64} height={64} className="stat-image" sizes="64px" />
             </div>
             <div className="stat-item stat-garages">
               <div className="stat-number">27</div>
               <div className="stat-label">Гаража</div>
-              <img src={`/stats-garages.png?v=${cacheBuster}`} alt="Garages" className="stat-image" />
+              <OptimizedImage src={`/stats-garages.png?v=${cacheBuster}`} alt="Garages" width={64} height={64} className="stat-image" sizes="64px" />
             </div>
             <div className="stat-item stat-parking">
               <div className="stat-number">24</div>
               <div className="stat-label">Паркоместа</div>
-              <img src={`/stats-parking-space.png?v=${cacheBuster}`} alt="Parking" className="stat-image" />
+              <OptimizedImage src={`/stats-parking-space.png?v=${cacheBuster}`} alt="Parking" width={64} height={64} className="stat-image" sizes="64px" />
             </div>
             <div className="stat-item stat-completion">
               <div className="stat-number">2027</div>
               <div className="stat-label">{t('building.stats.completion')}</div>
-              <img src={`/stats-completion.png?v=${cacheBuster}`} alt="Completion" className="stat-image" />
+              <OptimizedImage src={`/stats-completion.png?v=${cacheBuster}`} alt="Completion" width={64} height={64} className="stat-image" sizes="64px" />
             </div>
           </motion.div>
 
@@ -347,7 +353,7 @@ const BuildingOverview = () => {
                 <div className="situation-overlay">
                   <button 
                     className="view-situation-btn"
-                    onClick={() => window.open('/SITUACIA.pdf', '_blank')}
+                    onClick={() => openLinkSafely('/SITUACIA.pdf')}
                     aria-label="View full building situation plan"
                   >
                     View Full Situation Plan
