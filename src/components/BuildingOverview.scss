@@ -234,7 +234,8 @@
   overflow: hidden;
   box-shadow: var(--shadow-medium);
   transition: all var(--transition-medium);
-  height: 400px;
+  height: auto;
+  aspect-ratio: 16 / 9;
 
   &:hover {
     box-shadow: var(--shadow-heavy);
@@ -246,7 +247,7 @@
     display: block;
     transition: transform var(--transition-medium);
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
   }
 
   &:hover img {
