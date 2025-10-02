@@ -151,6 +151,7 @@ main {
   display: inline-block;
   padding: 1rem 2rem;
   border: none;
+  outline: none;
   border-radius: 8px;
   font-family: var(--font-primary);
   font-size: 1rem;
@@ -161,6 +162,9 @@ main {
   transition: all var(--transition-medium);
   position: relative;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
   
   &::before {
     content: '';
@@ -184,6 +188,12 @@ main {
   
   &:active {
     transform: translateY(-1px) scale(1.02);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 157, 90, 0.35);
   }
 }
 
