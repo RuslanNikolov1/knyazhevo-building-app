@@ -68,7 +68,7 @@ const Hero = () => {
         <div className="hero-overlay"></div>
       </div>
 
-      <div className="container">
+      <div className="hero-container">
         <div className="hero-content">
           <motion.div
             className="hero-text"

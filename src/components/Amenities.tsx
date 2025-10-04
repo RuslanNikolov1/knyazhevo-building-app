@@ -69,7 +69,7 @@ const Amenities = () => {
 
   return (
     <section id="amenities" className="amenities section">
-      <div className="container">
+      <div className="amenities-container">
         <motion.div
           className="amenities-content"
           ref={ref}

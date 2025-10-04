@@ -44,8 +44,11 @@
         "rotate": "Плъзнете за завъртане",
         "zoom": "Скролирайте за приближаване",
         "touch": "Приятелски за докосване"
-      }
-    }
+      },
+      "instructions": "Плъзнете за завъртане • Скролирайте за приближаване"
+    },
+    "clickToViewFullPlan": "Кликнете за пълен план",
+    "clickToViewFullFloorPlan": "Кликнете за пълен план на етажа"
   },
   "apartments": {
     "title": "Апартаменти",
@@ -114,7 +117,7 @@
   },
   "footer": {
     "rights": "Всички права запазени",
-    "luxuryLiving": "Forest residence Sofia",
+    "luxuryLiving": "Forest Residence Sofia",
     "navigation": "Навигация",
     "contactInfo": "Контактна информация",
     "legal": "Правна информация",

@@ -16,6 +16,7 @@ interface OptimizedImageProps {
   blurDataURL?: string;
   onLoad?: () => void;
   onError?: () => void;
+  fill?: boolean;
 }
 
 const OptimizedImage = ({
@@ -31,7 +32,8 @@ const OptimizedImage = ({
   placeholder = 'empty',
   blurDataURL,
   onLoad,
-  onError
+  onError,
+  fill
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -78,8 +80,8 @@ const OptimizedImage = ({
   };
 
   const imageStyle = {
-    width: width ? `${width}px` : '100%',
-    height: height ? `${height}px` : 'auto',
+    width: fill ? '100%' : (width ? `${width}px` : '100%'),
+    height: fill ? '100%' : (height ? `${height}px` : 'auto'),
     objectFit: 'cover' as const,
     transition: 'opacity 0.3s ease-in-out',
     opacity: isLoaded ? 1 : 0

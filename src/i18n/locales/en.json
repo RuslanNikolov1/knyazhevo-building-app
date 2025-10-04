@@ -44,8 +44,15 @@
         "rotate": "Drag to rotate",
         "zoom": "Scroll to zoom",
         "touch": "Touch friendly"
-      }
-    }
+      },
+      "instructions": "Drag to rotate • Scroll to zoom • Right-click to pan"
+    },
+    "mobileHints": {
+      "clickToView": "Click to view full size",
+      "tapToOpen": "Tap to open in new tab"
+    },
+    "clickToViewFullPlan": "Click to view full plan",
+    "clickToViewFullFloorPlan": "Click to view full floor plan"
   },
   "apartments": {
     "title": "Apartments",
@@ -114,7 +121,7 @@
   },
   "footer": {
     "rights": "All rights reserved",
-    "luxuryLiving": "Forest residence Sofia",
+    "luxuryLiving": "Forest Residence Sofia",
     "navigation": "Navigation",
     "contactInfo": "Contact Info",
     "legal": "Legal",

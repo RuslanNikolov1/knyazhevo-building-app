@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Building3D from './Building3D';
-import { openLinkSafely, isInAppBrowser } from '../utils/openLink';
+import { openLinkSafely } from '../utils/openLink';
 import OptimizedImage from './OptimizedImage';
 import './BuildingOverview.scss';
 
@@ -23,35 +23,35 @@ const BuildingOverview = () => {
       icon: '🏢',
       title: t('building.floors.ground'),
       description: t('building.floorDescriptions.ground'),
-      floorPlan: '/+0.00.pdf',
-      image: '/+0.00.pdf'
+      floorPlan: '/+0.00-1.png',
+      image: '/+0.00-1.png'
     },
     {
       icon: '🏠',
       title: t('building.floors.floor1'),
       description: t('building.floorDescriptions.floor1'),
-      floorPlan: '/+3.10.pdf',
-      image: '/+3.10.pdf'
+      floorPlan: '/+3.10-1.png',
+      image: '/+3.10-1.png'
     },
     {
       icon: '🏠',
       title: t('building.floors.floor2'),
       description: t('building.floorDescriptions.floor2'),
-      floorPlan: '/+6.15.pdf',
-      image: '/+6.15.pdf'
+      floorPlan: '/+6.15-1.png',
+      image: '/+6.15-1.png'
     },
     {
       icon: '🏠',
       title: t('building.floors.floor3'),
       description: t('building.floorDescriptions.floor3'),
-      floorPlan: '/+9.20.pdf',
-      image: '/+9.20.pdf'
+      floorPlan: '/+9.20-1.png',
+      image: '/+9.20-1.png'
     }
   ];
 
   return (
     <section id="building" className="building-overview section">
-      <div className="container">
+      <div className="building-container">
         <motion.div
           className="building-content"
           ref={ref}
@@ -153,11 +153,13 @@ const BuildingOverview = () => {
                     alt="Building facade view 1"
                     width={400}
                     height={300}
+                    fill
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, 400px"
                   />
                   <div className="image-overlay">
-                    <span>Click to view full size</span>
+                    <span className="desktop-text">{t('building.mobileHints.clickToView')}</span>
+                    <span className="mobile-text">{t('building.mobileHints.tapToOpen')}</span>
                   </div>
                 </div>
                 <div 
@@ -179,11 +181,13 @@ const BuildingOverview = () => {
                     alt="Building facade view 2"
                     width={400}
                     height={300}
+                    fill
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, 400px"
                   />
                   <div className="image-overlay">
-                    <span>Click to view full size</span>
+                    <span className="desktop-text">{t('building.mobileHints.clickToView')}</span>
+                    <span className="mobile-text">{t('building.mobileHints.tapToOpen')}</span>
                   </div>
                 </div>
               </div>
@@ -207,11 +211,13 @@ const BuildingOverview = () => {
                     alt="Building facade view 3"
                     width={400}
                     height={300}
+                    fill
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, 400px"
                   />
                   <div className="image-overlay">
-                    <span>Click to view full size</span>
+                    <span className="desktop-text">{t('building.mobileHints.clickToView')}</span>
+                    <span className="mobile-text">{t('building.mobileHints.tapToOpen')}</span>
                   </div>
                 </div>
                 <div 
@@ -233,12 +239,73 @@ const BuildingOverview = () => {
                     alt="Building facade view 4"
                     width={400}
                     height={300}
+                    fill
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, 400px"
                   />
                   <div className="image-overlay">
-                    <span>Click to view full size</span>
+                    <span className="desktop-text">{t('building.mobileHints.clickToView')}</span>
+                    <span className="mobile-text">{t('building.mobileHints.tapToOpen')}</span>
                   </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="building-situation"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <h3>📍 {t('building.situation')}</h3>
+            <div className="situation-container">
+              <div 
+                className="situation-image"
+                onClick={() => openLinkSafely(`/situation.png?v=${cacheBuster}`)}
+                style={{ cursor: 'pointer' }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLinkSafely(`/situation.png?v=${cacheBuster}`);
+                  }
+                }}
+                aria-label="View full size building situation plan"
+              >
+                <img
+                  src={`/situation.png?v=${cacheBuster}`}
+                  alt="Building situation plan"
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  onError={(e) => {
+                    console.error('Failed to load situation.png:', e);
+                    e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={() => {
+                    console.log('Successfully loaded situation.png');
+                  }}
+                />
+                <div className="image-fallback" style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  height: '100%', 
+                  background: 'linear-gradient(135deg, var(--primary-light), var(--primary-lighter))',
+                  color: 'white',
+                  fontSize: '1.2rem',
+                  fontWeight: '500'
+                }}>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📍</div>
+                    <div>Building Situation Plan</div>
+                    <div style={{ fontSize: '0.9rem', marginTop: '0.5rem', opacity: 0.8 }}>Click to view</div>
+                  </div>
+                </div>
+                <div className="image-overlay">
+                  <span className="desktop-text">{t('building.mobileHints.clickToView')}</span>
+                  <span className="mobile-text">{t('building.mobileHints.tapToOpen')}</span>
                 </div>
               </div>
             </div>
@@ -248,9 +315,9 @@ const BuildingOverview = () => {
             className="building-features"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
           >
-            <h3 className="features-title">🏢 Floors</h3>
+            <h3 className="features-title">🏢 {t('building.stats.floors')}</h3>
             <div className="features-grid">
               {features.map((feature, index) => (
               <motion.div
@@ -282,23 +349,20 @@ const BuildingOverview = () => {
                   <h3>{feature.title}</h3>
                 </div>
                 <div className="feature-image">
-                  {isInAppBrowser() ? (
-                    <div className="pdf-placeholder">
-                      <span>{t('apartments.viewFullPlan')}</span>
-                    </div>
-                  ) : (
-                    <iframe
-                      src={`${feature.image}#toolbar=0&navpanes=0&scrollbar=0&zoom=FitH`}
-                      title={`Floor plan for ${feature.title}`}
-                      className="floor-plan-pdf"
-                      loading="lazy"
-                    />
-                  )}
+                  <OptimizedImage
+                    src={feature.image}
+                    alt={`Floor plan for ${feature.title}`}
+                    width={400}
+                    height={300}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                  />
                 </div>
                 <div className="feature-content">
                   <p>{feature.description}</p>
                   <div className="view-plan-hint">
-                    <span>CLICK TO EXPAND THE MAP →</span>
+                    <span>{t('building.clickToViewFullFloorPlan')} →</span>
                   </div>
                 </div>
               </motion.div>
@@ -316,63 +380,30 @@ const BuildingOverview = () => {
             <div className="stat-item stat-floors">
               <div className="stat-number">3</div>
               <div className="stat-label">{t('building.stats.floors')}</div>
-              <OptimizedImage src={`/stats-floors.png?v=${cacheBuster}`} alt="Floors" width={64} height={64} className="stat-image" sizes="64px" />
+              <OptimizedImage src={`/stats-floors.png?v=${cacheBuster}`} alt="Floors" width={100} height={100} className="stat-image" sizes="100px" />
             </div>
             <div className="stat-item stat-apartments">
               <div className="stat-number">27</div>
               <div className="stat-label">{t('building.stats.apartments')}</div>
-              <OptimizedImage src={`/stats-apartments.png?v=${cacheBuster}`} alt="Apartments" width={64} height={64} className="stat-image" sizes="64px" />
+              <OptimizedImage src={`/stats-apartments.png?v=${cacheBuster}`} alt="Apartments" width={100} height={100} className="stat-image" sizes="100px" />
             </div>
             <div className="stat-item stat-garages">
               <div className="stat-number">27</div>
               <div className="stat-label">Гаража</div>
-              <OptimizedImage src={`/stats-garages.png?v=${cacheBuster}`} alt="Garages" width={64} height={64} className="stat-image" sizes="64px" />
+              <OptimizedImage src={`/stats-garages.png?v=${cacheBuster}`} alt="Garages" width={100} height={100} className="stat-image" sizes="100px" />
             </div>
             <div className="stat-item stat-parking">
               <div className="stat-number">24</div>
               <div className="stat-label">Паркоместа</div>
-              <OptimizedImage src={`/stats-parking-space.png?v=${cacheBuster}`} alt="Parking" width={64} height={64} className="stat-image" sizes="64px" />
+              <OptimizedImage src={`/stats-parking-space.png?v=${cacheBuster}`} alt="Parking" width={100} height={100} className="stat-image" sizes="100px" />
             </div>
             <div className="stat-item stat-completion">
               <div className="stat-number">2027</div>
               <div className="stat-label">{t('building.stats.completion')}</div>
-              <OptimizedImage src={`/stats-completion.png?v=${cacheBuster}`} alt="Completion" width={64} height={64} className="stat-image" sizes="64px" />
+              <OptimizedImage src={`/stats-completion.png?v=${cacheBuster}`} alt="Completion" width={100} height={100} className="stat-image" sizes="100px" />
             </div>
           </motion.div>
 
-          <motion.div
-            className="building-situation"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-          >
-            <h3>📋 {t('building.situation')}</h3>
-            
-            <div className="situation-overview">
-              <div className="situation-container">
-                {isInAppBrowser() ? (
-                  <div className="situation-pdf placeholder" />
-                ) : (
-                  <iframe
-                    src="/SITUACIA.pdf"
-                    title="Building situation and location"
-                    className="situation-pdf"
-                    loading="lazy"
-                  />
-                )}
-                <div className="situation-overlay">
-                  <button 
-                    className="view-situation-btn"
-                    onClick={() => openLinkSafely('/SITUACIA.pdf')}
-                    aria-label="View full building situation plan"
-                  >
-                    View Full Situation Plan
-                  </button>
-                </div>
-              </div>
-            </div>
-
-          </motion.div>
         </motion.div>
       </div>
     </section>

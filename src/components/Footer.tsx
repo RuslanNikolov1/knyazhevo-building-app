@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="footer-container">
         <div className="footer-content">
           <motion.div
             className="footer-main"
@@ -22,8 +22,8 @@ const Footer = () => {
           >
             <div className="footer-brand">
               <div className="footer-brand-header">
-                <img src="/logo-white.png" alt="Forest residence Sofia" className="footer-logo" />
-                <h3>Forest residence Sofia</h3>
+                <img src="/logo-white.png" alt="Forest Residence Sofia" className="footer-logo" />
+                <h3>Forest Residence Sofia</h3>
               </div>
               <p>
                 {t('hero.subtitle')}
@@ -92,7 +92,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="footer-copyright">
-              <p>© 2025 Forest residence Sofia. Всички права запазени.</p>
+              <p>© 2025 Forest Residence Sofia. Всички права запазени.</p>
             </div>
 
             {/* Social links removed as requested */}

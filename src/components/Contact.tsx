@@ -69,7 +69,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact section">
-      <div className="container">
+      <div className="contact-container">
         <motion.div
           className="contact-content"
           ref={ref}

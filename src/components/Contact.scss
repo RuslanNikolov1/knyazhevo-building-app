@@ -53,7 +53,7 @@
 
 .contact-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;      /* center horizontally */
   gap: 1rem;
   padding: 1rem;
   background: var(--light-gray);
@@ -255,10 +255,39 @@
 
   .contact-grid {
     gap: 2rem;
+    justify-items: center;
+  }
+
+  // Center text content on mobile/tablet
+  .contact-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-text {
+    text-align: center;
+  }
+
+  .contact-details {
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
+  .contact-grid {
+    justify-items: stretch;
+  }
+
+  .contact-info,
+  .contact-form-container,
+  .contact-details,
+  .contact-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .contact-form-container {
     padding: 1rem;
   }

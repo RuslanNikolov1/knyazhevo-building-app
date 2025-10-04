@@ -75,37 +75,37 @@ const Apartments = () => {
 
   const apartments = {
     '+3.10': [
-      { id: 1, area: 85, bedrooms: 2, price: 125000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
-      { id: 2, area: 95, bedrooms: 2, price: 145000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
-      { id: 3, area: 110, bedrooms: 3, price: 165000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
-      { id: 4, area: 75, bedrooms: 1, price: 105000, balcony: false, floor: '+3.10', floorPlan: '/+3.10.pdf' },
-      { id: 5, area: 90, bedrooms: 2, price: 135000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
-      { id: 6, area: 100, bedrooms: 2, price: 155000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
-      { id: 7, area: 88, bedrooms: 2, price: 135000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
-      { id: 8, area: 92, bedrooms: 2, price: 140000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' },
-      { id: 9, area: 105, bedrooms: 3, price: 160000, balcony: true, floor: '+3.10', floorPlan: '/+3.10.pdf' }
+      { id: 1, area: 85, bedrooms: 2, price: 125000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
+      { id: 2, area: 95, bedrooms: 2, price: 145000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
+      { id: 3, area: 110, bedrooms: 3, price: 165000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
+      { id: 4, area: 75, bedrooms: 1, price: 105000, balcony: false, floor: '+3.10', floorPlan: '/+3.10-1.png' },
+      { id: 5, area: 90, bedrooms: 2, price: 135000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
+      { id: 6, area: 100, bedrooms: 2, price: 155000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
+      { id: 7, area: 88, bedrooms: 2, price: 135000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
+      { id: 8, area: 92, bedrooms: 2, price: 140000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
+      { id: 9, area: 105, bedrooms: 3, price: 160000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' }
     ],
     '+6.15': [
-      { id: 10, area: 88, bedrooms: 2, price: 135000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 11, area: 98, bedrooms: 2, price: 155000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 12, area: 115, bedrooms: 3, price: 175000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 13, area: 78, bedrooms: 1, price: 115000, balcony: false, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 14, area: 92, bedrooms: 2, price: 145000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 15, area: 102, bedrooms: 2, price: 165000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 16, area: 86, bedrooms: 2, price: 130000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 17, area: 94, bedrooms: 2, price: 150000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' },
-      { id: 18, area: 108, bedrooms: 3, price: 170000, balcony: true, floor: '+6.15', floorPlan: '/+6.15.pdf' }
+      { id: 10, area: 88, bedrooms: 2, price: 135000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
+      { id: 11, area: 98, bedrooms: 2, price: 155000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
+      { id: 12, area: 115, bedrooms: 3, price: 175000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
+      { id: 13, area: 78, bedrooms: 1, price: 115000, balcony: false, floor: '+6.15', floorPlan: '/+6.15-1.png' },
+      { id: 14, area: 92, bedrooms: 2, price: 145000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
+      { id: 15, area: 102, bedrooms: 2, price: 165000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
+      { id: 16, area: 86, bedrooms: 2, price: 130000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
+      { id: 17, area: 94, bedrooms: 2, price: 150000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
+      { id: 18, area: 108, bedrooms: 3, price: 170000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' }
     ],
     '+9.20': [
-      { id: 19, area: 90, bedrooms: 2, price: 145000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 20, area: 100, bedrooms: 2, price: 165000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 21, area: 120, bedrooms: 3, price: 185000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 22, area: 80, bedrooms: 1, price: 125000, balcony: false, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 23, area: 95, bedrooms: 2, price: 155000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 24, area: 105, bedrooms: 2, price: 175000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 25, area: 87, bedrooms: 2, price: 140000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 26, area: 97, bedrooms: 2, price: 160000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' },
-      { id: 27, area: 112, bedrooms: 3, price: 180000, balcony: true, floor: '+9.20', floorPlan: '/+9.20.pdf' }
+      { id: 19, area: 90, bedrooms: 2, price: 145000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
+      { id: 20, area: 100, bedrooms: 2, price: 165000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
+      { id: 21, area: 120, bedrooms: 3, price: 185000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
+      { id: 22, area: 80, bedrooms: 1, price: 125000, balcony: false, floor: '+9.20', floorPlan: '/+9.20-1.png' },
+      { id: 23, area: 95, bedrooms: 2, price: 155000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
+      { id: 24, area: 105, bedrooms: 2, price: 175000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
+      { id: 25, area: 87, bedrooms: 2, price: 140000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
+      { id: 26, area: 97, bedrooms: 2, price: 160000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
+      { id: 27, area: 112, bedrooms: 3, price: 180000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' }
     ],
   };
 
@@ -119,7 +119,7 @@ const Apartments = () => {
 
   return (
     <section id="apartments" className="apartments section">
-      <div className="container">
+      <div className="apartments-container">
         <motion.div
           className="apartments-content"
           initial={{ opacity: 0, y: 50 }}
@@ -208,20 +208,20 @@ const Apartments = () => {
                       <p>{t('apartments.parkingSpacesAvailable')}</p>
                     </div>
                   <div className="pdf-viewer">
-                    {isInAppBrowser() ? (
-                      <div className="pdf-placeholder" />
-                    ) : (
-                      <iframe
-                        src="/+0.00.pdf"
-                        title={t('apartments.parkingPlan')}
-                        className="pdf-iframe"
-                        loading="lazy"
-                      />
-                    )}
+                    <img
+                      src="/+0.00-1.png"
+                      alt={t('apartments.parkingPlan')}
+                      className="floor-plan-image"
+                      loading="lazy"
+                    />
                     <div className="pdf-overlay">
+                      <div className="mobile-hint">
+                        <span className="desktop-text">{t('building.mobileHints.clickToView')}</span>
+                        <span className="mobile-text">{t('building.mobileHints.tapToOpen')}</span>
+                      </div>
                       <button 
                         className="view-pdf-btn"
-                        onClick={() => openLinkSafely('/+0.00.pdf')}
+                        onClick={() => openLinkSafely('/+0.00-1.png')}
                       >
                         Отвори пълен план
                       </button>
@@ -239,20 +239,20 @@ const Apartments = () => {
                       <p>{t('apartments.garageSpacesAvailable')}</p>
                     </div>
                   <div className="pdf-viewer">
-                    {isInAppBrowser() ? (
-                      <div className="pdf-placeholder" />
-                    ) : (
-                      <iframe
-                        src="/+0.00.pdf"
-                        title={t('apartments.garagePlan')}
-                        className="pdf-iframe"
-                        loading="lazy"
-                      />
-                    )}
+                    <img
+                      src="/+0.00-1.png"
+                      alt={t('apartments.garagePlan')}
+                      className="floor-plan-image"
+                      loading="lazy"
+                    />
                     <div className="pdf-overlay">
+                      <div className="mobile-hint">
+                        <span className="desktop-text">{t('building.mobileHints.clickToView')}</span>
+                        <span className="mobile-text">{t('building.mobileHints.tapToOpen')}</span>
+                      </div>
                       <button 
                         className="view-pdf-btn"
-                        onClick={() => openLinkSafely('/+0.00.pdf')}
+                        onClick={() => openLinkSafely('/+0.00-1.png')}
                       >
                         Отвори пълен план
                       </button>
@@ -275,22 +275,38 @@ const Apartments = () => {
                 }}
               >
                 <div className="apartment-image">
-                  <div className="floor-plan-container">
-                    {isInAppBrowser() ? (
-                      <div className="pdf-placeholder" />
-                    ) : (
-                      <iframe
-                        src={apartment.floorPlan}
-                        title={`Floor plan for ${apartment.floor}`}
-                        className="floor-plan-pdf"
-                        loading="lazy"
-                      />
-                    )}
+                  <div 
+                    className="floor-plan-container"
+                    onClick={() => openLinkSafely(apartment.floorPlan)}
+                    style={{ cursor: 'pointer' }}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLinkSafely(apartment.floorPlan);
+                      }
+                    }}
+                    aria-label={`View full floor plan for ${apartment.floor}`}
+                  >
+                    <img
+                      src={apartment.floorPlan}
+                      alt={`Floor plan for ${apartment.floor}`}
+                      className="floor-plan-image"
+                      loading="lazy"
+                    />
                     <div className="floor-plan-overlay">
                       <span className="floor-plan-label">{t('apartments.floorPlan')}</span>
+                      <div className="mobile-hint">
+                        <span className="desktop-text">{t('building.mobileHints.clickToView')}</span>
+                        <span className="mobile-text">{t('building.mobileHints.tapToOpen')}</span>
+                      </div>
                       <button 
                         className="view-floor-plan-btn"
-                        onClick={() => openLinkSafely(apartment.floorPlan)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openLinkSafely(apartment.floorPlan);
+                        }}
                         aria-label={`View full floor plan for ${apartment.floor}`}
                       >
                         {t('apartments.viewFullPlan')}

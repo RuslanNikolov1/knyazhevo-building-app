@@ -37,15 +37,13 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      <div className="container">
-        <div className="header-content">
           <motion.div 
             className="logo"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <img src="/logo.png" alt="Forest residence Sofia" className="logo-image" />
-            <h2>Forest residence Sofia</h2>
+            <img src="/logo.png" alt="Forest Residence Sofia" className="logo-image" />
+            <h2>Forest Residence Sofia</h2>
           </motion.div>
 
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
@@ -162,8 +160,6 @@ const Header = () => {
               <span></span>
             </button>
           </div>
-        </div>
-      </div>
     </motion.header>
   );
 };

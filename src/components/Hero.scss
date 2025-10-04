@@ -1,9 +1,10 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   overflow: hidden;
+  padding-top: calc(var(--header-height) + var(--safe-area-top));
 }
 
 .hero-background {
@@ -127,6 +128,15 @@
     flex-direction: column;
     align-items: center;
   }
+}
+
+// Ensure the hero CTA has a white border
+.hero-actions .btn.btn-primary {
+  border: 2px solid var(--white);
+}
+
+.hero-actions .btn.btn-primary:hover {
+  border-color: var(--white);
 }
 
 .scroll-indicator {

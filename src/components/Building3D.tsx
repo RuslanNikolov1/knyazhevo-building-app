@@ -1,7 +1,8 @@
 import { Suspense, useRef, useEffect, memo, useState } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
-import { Environment, useGLTF } from '@react-three/drei';
+import { Environment, useGLTF, OrbitControls } from '@react-three/drei';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 // Import only what we need from Three.js to reduce bundle size
 import { 
   Group, 
@@ -14,36 +15,6 @@ import './Building3D.scss';
 const BuildingModel = memo(() => {
   const { scene } = useGLTF('/29.09.2025 г..glb');
   const modelRef = useRef<Group>(null);
-  const [rotationAngle, setRotationAngle] = useState(0);
-
-  // --- Instead of OrbitControls, rotate the building group ---
-  const rotateBuilding = (angle: number) => {
-    // Rotate around Y-axis (horizontal rotation)
-    if (modelRef.current) {
-      modelRef.current.rotation.y = angle;
-    }
-  };
-
-  // Handle mouse drag for rotation
-  const handleMouseDown = (event: React.MouseEvent) => {
-    const startX = event.clientX;
-    const startRotation = rotationAngle;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const deltaX = e.clientX - startX;
-      const newAngle = startRotation + deltaX * 0.01; // Adjust sensitivity
-      setRotationAngle(newAngle);
-      rotateBuilding(newAngle);
-    };
-
-    const handleMouseUp = () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-    };
-
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-  };
 
   // Optimize the model on load
   useEffect(() => {
@@ -74,7 +45,6 @@ const BuildingModel = memo(() => {
       ref={modelRef} 
       scale={[250, 250, 250]} 
       position={[0, -155, 0]}
-      onPointerDown={handleMouseDown}
     >
       <primitive object={scene} />
     </group>
@@ -322,6 +292,7 @@ const Landscape = memo(() => {
 
 function Building3D() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
   
   return (
     <motion.div
@@ -332,7 +303,7 @@ function Building3D() {
       transition={{ duration: 0.8 }}
     >
       <div className="building-3d-header">
-        <h3>🧊 3D Model</h3>
+        <h3>🧊 {t('building.model3d.title')}</h3>
       </div>
       <div className="building-3d-viewer">
         <Canvas
@@ -362,6 +333,18 @@ function Building3D() {
           {/* Camera Setup */}
           <CameraSetup />
 
+          {/* OrbitControls for rotation */}
+          <OrbitControls
+            enablePan={false}
+            enableZoom={true}
+            enableRotate={true}
+            minPolarAngle={Math.PI / 6}
+            maxPolarAngle={Math.PI - Math.PI / 6}
+            minDistance={100}
+            maxDistance={500}
+            target={[0, -155, 0]}
+          />
+
           {/* Environment */}
           <Environment preset="sunset" />
 
@@ -383,7 +366,7 @@ function Building3D() {
       <div className="building-3d-info">
         <div className="info-item" aria-live="polite">
           <span className="icon">🔄</span>
-          <span>Drag to rotate the 3D model</span>
+          <span>{t('building.model3d.instructions')}</span>
         </div>
       </div>
     </motion.div>

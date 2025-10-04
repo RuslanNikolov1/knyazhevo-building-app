@@ -44,8 +44,15 @@
         "rotate": "Перетащите для поворота",
         "zoom": "Прокрутите для масштабирования",
         "touch": "Удобно для касания"
-      }
-    }
+      },
+      "instructions": "Перетащите для поворота • Прокрутите для масштабирования • Правый клик для панорамирования"
+    },
+    "mobileHints": {
+      "clickToView": "Нажмите для полного размера",
+      "tapToOpen": "Нажмите для открытия в новой вкладке"
+    },
+    "clickToViewFullPlan": "Нажмите для просмотра полного плана",
+    "clickToViewFullFloorPlan": "Нажмите для просмотра полного плана этажа"
   },
   "apartments": {
     "title": "Квартиры",
@@ -114,7 +121,7 @@
   },
   "footer": {
     "rights": "Все права защищены",
-    "luxuryLiving": "Forest residence Sofia",
+    "luxuryLiving": "Forest Residence Sofia",
     "navigation": "Навигация",
     "contactInfo": "Контактная информация",
     "legal": "Правовая информация",
