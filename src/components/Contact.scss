@@ -275,6 +275,19 @@
   }
 }
 
+// Full width contact cards between 768px and 425px
+@media (max-width: 768px) and (min-width: 425px) {
+  .contact-details {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact-item {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 480px) {
   .contact-grid {
     justify-items: stretch;

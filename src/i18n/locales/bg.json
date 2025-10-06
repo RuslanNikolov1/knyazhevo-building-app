@@ -47,6 +47,10 @@
       },
       "instructions": "Плъзнете за завъртане • Скролирайте за приближаване"
     },
+    "mobileHints": {
+      "clickToView": "Кликнете за пълен размер",
+      "tapToOpen": "Докоснете за отваряне в нов раздел"
+    },
     "clickToViewFullPlan": "Кликнете за пълен план",
     "clickToViewFullFloorPlan": "Кликнете за пълен план на етажа"
   },
