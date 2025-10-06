@@ -1,4 +1,4 @@
-import { Suspense, useRef, useEffect, memo, useState } from 'react';
+import { Suspense, useRef, useEffect, memo } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { Environment, useGLTF, OrbitControls } from '@react-three/drei';
 import { motion } from 'framer-motion';

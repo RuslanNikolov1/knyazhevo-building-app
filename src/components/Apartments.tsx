@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { openLinkSafely, isInAppBrowser } from '../utils/openLink';
+import { openLinkSafely } from '../utils/openLink';
 import './Apartments.scss';
 
 const Apartments = () => {
