@@ -62,7 +62,6 @@
   background: var(--white);
   padding: 2.5rem;
   border-radius: 16px;
-  box-shadow: var(--shadow-light);
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
@@ -513,7 +512,6 @@
   background: rgba(255, 255, 255, 0.9);
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
-  box-shadow: var(--shadow-light);
 }
 
 .slider-hints {

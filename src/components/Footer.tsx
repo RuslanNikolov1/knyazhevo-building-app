@@ -69,6 +69,9 @@ const Footer = () => {
                   <li>📞 {t('footer.phone')}</li>
                   <li>✉️ {t('footer.email')}</li>
                   <li>🕒 {t('footer.hours')}</li>
+                  <li>
+                    🔗 <a href="https://www.linkedin.com/in/ruslan-nikolov-721413355/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                  </li>
                 </ul>
               </div>
 
