@@ -74,14 +74,6 @@ const Header = () => {
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('amenities')}
-                  className="nav-link"
-                >
-                  {t('navigation.amenities')}
-                </button>
-              </li>
-              <li>
-                <button 
                   onClick={() => scrollToSection('contact')}
                   className="nav-link"
                 >
@@ -92,7 +84,6 @@ const Header = () => {
             
             {/* Mobile Language Switcher */}
             <div className="mobile-language-switcher">
-              <h4>🌍 Language</h4>
               <div className="mobile-lang-buttons">
                 <button
                   onClick={() => changeLanguage('bg')}
@@ -123,6 +114,44 @@ const Header = () => {
           </nav>
 
           <div className="header-actions">
+            {/* Desktop Navigation */}
+            <nav className="desktop-nav">
+              <ul className="desktop-nav-list">
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('hero')}
+                    className="nav-link"
+                  >
+                    {t('navigation.home')}
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('building')}
+                    className="nav-link"
+                  >
+                    {t('navigation.building')}
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('apartments')}
+                    className="nav-link"
+                  >
+                    {t('navigation.apartments')}
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('contact')}
+                    className="nav-link"
+                  >
+                    {t('navigation.contact')}
+                  </button>
+                </li>
+              </ul>
+            </nav>
+
             <div className="language-switcher">
               <button
                 onClick={() => changeLanguage('bg')}

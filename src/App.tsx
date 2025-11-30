@@ -9,7 +9,6 @@ import StructuredData from './components/StructuredData';
 // Lazy load non-critical components
 const BuildingOverview = lazy(() => import('./components/BuildingOverview'));
 const Apartments = lazy(() => import('./components/Apartments'));
-const Amenities = lazy(() => import('./components/Amenities'));
 const Contact = lazy(() => import('./components/Contact'));
 const Footer = lazy(() => import('./components/Footer'));
 
@@ -34,9 +33,6 @@ function App() {
         </Suspense>
         <Suspense fallback={<div className="loading-placeholder">Loading...</div>}>
           <Apartments />
-        </Suspense>
-        <Suspense fallback={<div className="loading-placeholder">Loading...</div>}>
-          <Amenities />
         </Suspense>
         <Suspense fallback={<div className="loading-placeholder">Loading...</div>}>
           <Contact />

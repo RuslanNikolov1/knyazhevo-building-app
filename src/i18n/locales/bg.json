@@ -33,6 +33,7 @@
       "completion": "ЗАВЪРШВАНЕ"
     },
     "situation": "Строителна ситуация",
+    "locationTitle": "ул. Витошки извори 4",
     "location": "Местоположение",
     "address": "кв. КняжевоВитоша, ул. \"Витошки извори\" 4, 1619 София",
     "expandMap": "КЛИКНЕТЕ ЗА РАЗШИРЯВАНЕ НА КАРТАТА →",
@@ -105,11 +106,12 @@
     "address": "Адрес",
     "phoneTitle": "Телефон",
     "emailTitle": "Имейл",
+    "contactViaEmail": "Свържете се с нас по имейл",
     "officeHours": "Работно време",
     "sending": "Изпращане...",
-    "addressDetails": ["ул. Луксозна, 123", "София, България 1000"],
-    "phoneDetails": ["+359 2 123 4567", "+359 88 123 4567"],
-    "emailDetails": ["info@luxuryliving.bg", "sales@luxuryliving.bg"],
+    "addressDetails": ["ул. Витошки извори 4", "1619 София, България"],
+    "phoneDetails": ["Скоро тук ще има телефонен номер."],
+    "emailDetails": ["sofiaforestresidence@gmail.com"],
     "hoursDetails": ["Понеделник - Петък: 9:00 - 18:00", "Събота: 10:00 - 16:00"]
   },
   "navigation": {
@@ -129,10 +131,11 @@
     "termsOfService": "Условия за ползване",
     "cookiePolicy": "Политика за бисквитки",
     "accessibility": "Достъпност",
-    "address": "ул. Луксозна, 123, София, България",
-    "phone": "+359 2 123 4567",
-    "email": "info@luxuryliving.bg",
-    "hours": "Пн-Пт: 9:00-18:00"
+    "address": "ул. Витошки извори 4, 1619 София, България",
+    "phone": "Скоро тук ще има телефонен номер.",
+    "email": "sofiaforestresidence@gmail.com",
+    "hours": "Пн-Пт: 9:00-18:00",
+    "createdBy": "Създадено от"
   },
   "construction": {
     "title": "Строителен прогрес",

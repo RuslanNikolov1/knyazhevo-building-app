@@ -33,8 +33,9 @@
       "completion": "COMPLETION"
     },
     "situation": "Building Situation",
+    "locationTitle": "st. Vitoshki Izvori 4",
     "location": "Location",
-    "address": "KnyazhevoVitosha Quarter, Vitoshki Izvori St 4, 1619 Sofia",
+    "address": "Knyazhevo Vitosha Quarter, Vitoshki Izvori St 4, 1619 Sofia",
     "expandMap": "CLICK TO EXPAND THE MAP →",
     "minimizeMap": "Click to minimize map",
     "model3d": {
@@ -105,11 +106,12 @@
     "address": "Address",
     "phoneTitle": "Phone",
     "emailTitle": "Email",
+    "contactViaEmail": "Contact us via email",
     "officeHours": "Office Hours",
     "sending": "Sending...",
-    "addressDetails": ["123 Luxury Street", "Sofia, Bulgaria 1000"],
-    "phoneDetails": ["+359 2 123 4567", "+359 88 123 4567"],
-    "emailDetails": ["info@luxuryliving.bg", "sales@luxuryliving.bg"],
+    "addressDetails": ["Vitoshki Izvori St 4", "1619 Sofia, Bulgaria"],
+    "phoneDetails": ["There's gonna be a phone number soon."],
+    "emailDetails": ["sofiaforestresidence@gmail.com"],
     "hoursDetails": ["Monday - Friday: 9:00 - 18:00", "Saturday: 10:00 - 16:00"]
   },
   "navigation": {
@@ -129,10 +131,11 @@
     "termsOfService": "Terms of Service",
     "cookiePolicy": "Cookie Policy",
     "accessibility": "Accessibility",
-    "address": "123 Luxury Street, Sofia, Bulgaria",
-    "phone": "+359 2 123 4567",
-    "email": "info@luxuryliving.bg",
-    "hours": "Mon-Fri: 9:00-18:00"
+    "address": "Vitoshki Izvori St 4, 1619 Sofia, Bulgaria",
+    "phone": "There's gonna be a phone number soon.",
+    "email": "sofiaforestresidence@gmail.com",
+    "hours": "Mon-Fri: 9:00-18:00",
+    "createdBy": "Created by"
   },
   "construction": {
     "title": "Construction Progress",

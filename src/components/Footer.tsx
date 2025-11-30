@@ -32,37 +32,6 @@ const Footer = () => {
 
             <div className="footer-links">
               <div className="footer-section">
-                <h4>{t('footer.navigation')}</h4>
-                <ul>
-                  <li>
-                    <button onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })}>
-                      {t('navigation.home')}
-                    </button>
-                  </li>
-                  <li>
-                    <button onClick={() => document.getElementById('building')?.scrollIntoView({ behavior: 'smooth' })}>
-                      {t('navigation.building')}
-                    </button>
-                  </li>
-                  <li>
-                    <button onClick={() => document.getElementById('apartments')?.scrollIntoView({ behavior: 'smooth' })}>
-                      {t('navigation.apartments')}
-                    </button>
-                  </li>
-                  <li>
-                    <button onClick={() => document.getElementById('amenities')?.scrollIntoView({ behavior: 'smooth' })}>
-                      {t('navigation.amenities')}
-                    </button>
-                  </li>
-                  <li>
-                    <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                      {t('navigation.contact')}
-                    </button>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="footer-section">
                 <h4>{t('footer.contactInfo')}</h4>
                 <ul>
                   <li>📍 {t('footer.address')}</li>
@@ -72,16 +41,6 @@ const Footer = () => {
                   <li>
                     🔗 <a href="https://www.linkedin.com/in/ruslan-nikolov-721413355/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                   </li>
-                </ul>
-              </div>
-
-              <div className="footer-section">
-                <h4>{t('footer.legal')}</h4>
-                <ul>
-                  <li><a href="#privacy">{t('footer.privacyPolicy')}</a></li>
-                  <li><a href="#terms">{t('footer.termsOfService')}</a></li>
-                  <li><a href="#cookies">{t('footer.cookiePolicy')}</a></li>
-                  <li><a href="#accessibility">{t('footer.accessibility')}</a></li>
                 </ul>
               </div>
             </div>
@@ -96,6 +55,9 @@ const Footer = () => {
           >
             <div className="footer-copyright">
               <p>© 2025 Forest Residence Sofia. Всички права запазени.</p>
+              <p className="footer-credits">
+                {t('footer.createdBy')} <a href="https://portfolio-website-dusky-five-28.vercel.app/" target="_blank" rel="noopener noreferrer">Ruslan Nikolov</a>
+              </p>
             </div>
 
             {/* Social links removed as requested */}

@@ -85,6 +85,7 @@ const BuildingOverview = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <h3>📍 {t('building.location')}</h3>
+            <p className="location-subtitle">{t('building.locationTitle')}</p>
             <div 
               className={`map-container ${isMapExpanded ? 'expanded' : ''}`}
               onClick={() => !isMapExpanded && setIsMapExpanded(true)}
@@ -378,27 +379,27 @@ const BuildingOverview = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             <div className="stat-item stat-floors">
-              <div className="stat-number">3</div>
+              <div className="stat-number">4</div>
               <div className="stat-label">{t('building.stats.floors')}</div>
               <OptimizedImage src={`/stats-floors.png?v=${cacheBuster}`} alt="Floors" width={100} height={100} className="stat-image" sizes="100px" />
             </div>
             <div className="stat-item stat-apartments">
-              <div className="stat-number">27</div>
+              <div className="stat-number">30</div>
               <div className="stat-label">{t('building.stats.apartments')}</div>
               <OptimizedImage src={`/stats-apartments.png?v=${cacheBuster}`} alt="Apartments" width={100} height={100} className="stat-image" sizes="100px" />
             </div>
             <div className="stat-item stat-garages">
-              <div className="stat-number">27</div>
+              <div className="stat-number">26</div>
               <div className="stat-label">Гаража</div>
               <OptimizedImage src={`/stats-garages.png?v=${cacheBuster}`} alt="Garages" width={100} height={100} className="stat-image" sizes="100px" />
             </div>
             <div className="stat-item stat-parking">
-              <div className="stat-number">24</div>
+              <div className="stat-number">5</div>
               <div className="stat-label">Паркоместа</div>
               <OptimizedImage src={`/stats-parking-space.png?v=${cacheBuster}`} alt="Parking" width={100} height={100} className="stat-image" sizes="100px" />
             </div>
             <div className="stat-item stat-completion">
-              <div className="stat-number">2027</div>
+              <div className="stat-number">2028</div>
               <div className="stat-label">{t('building.stats.completion')}</div>
               <OptimizedImage src={`/stats-completion.png?v=${cacheBuster}`} alt="Completion" width={100} height={100} className="stat-image" sizes="100px" />
             </div>

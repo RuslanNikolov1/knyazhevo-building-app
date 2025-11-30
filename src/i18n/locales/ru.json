@@ -33,6 +33,7 @@
       "completion": "ЗАВЕРШЕНИЕ"
     },
     "situation": "Строительная ситуация",
+    "locationTitle": "ул. Витошки извори 4",
     "location": "Местоположение",
     "address": "кв. КняжевоВитоша, ул. Витошки извори 4, 1619 София",
     "expandMap": "НАЖМИТЕ ДЛЯ РАСШИРЕНИЯ КАРТЫ →",
@@ -105,11 +106,12 @@
     "address": "Адрес",
     "phoneTitle": "Телефон",
     "emailTitle": "Email",
+    "contactViaEmail": "Свяжитесь с нами по электронной почте",
     "officeHours": "Часы работы",
     "sending": "Отправка...",
-    "addressDetails": ["ул. Роскошная, 123", "София, Болгария 1000"],
-    "phoneDetails": ["+359 2 123 4567", "+359 88 123 4567"],
-    "emailDetails": ["info@luxuryliving.bg", "sales@luxuryliving.bg"],
+    "addressDetails": ["ул. Витошки извори 4", "1619 София, Болгария"],
+    "phoneDetails": ["Скоро здесь будет номер телефона."],
+    "emailDetails": ["sofiaforestresidence@gmail.com"],
     "hoursDetails": ["Понедельник - Пятница: 9:00 - 18:00", "Суббота: 10:00 - 16:00"]
   },
   "navigation": {
@@ -129,10 +131,11 @@
     "termsOfService": "Условия использования",
     "cookiePolicy": "Политика файлов cookie",
     "accessibility": "Доступность",
-    "address": "ул. Роскошная, 123, София, Болгария",
-    "phone": "+359 2 123 4567",
-    "email": "info@luxuryliving.bg",
-    "hours": "Пн-Пт: 9:00-18:00"
+    "address": "ул. Витошки извори 4, 1619 София, Болгария",
+    "phone": "Скоро здесь будет номер телефона.",
+    "email": "sofiaforestresidence@gmail.com",
+    "hours": "Пн-Пт: 9:00-18:00",
+    "createdBy": "Создано"
   },
   "construction": {
     "title": "Строительный прогресс",
