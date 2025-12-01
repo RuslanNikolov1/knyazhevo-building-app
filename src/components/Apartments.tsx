@@ -109,49 +109,9 @@ const Apartments = () => {
   //   { id: 24, number: 'G024', type: 'Garage', price: 25000, available: true }
   // ];
 
-  const apartments = {
-    '+3.10': [
-      { id: 1, area: 85, bedrooms: 2, price: 125000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
-      { id: 2, area: 95, bedrooms: 2, price: 145000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
-      { id: 3, area: 110, bedrooms: 3, price: 165000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
-      { id: 4, area: 75, bedrooms: 1, price: 105000, balcony: false, floor: '+3.10', floorPlan: '/+3.10-1.png' },
-      { id: 5, area: 90, bedrooms: 2, price: 135000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
-      { id: 6, area: 100, bedrooms: 2, price: 155000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
-      { id: 7, area: 88, bedrooms: 2, price: 135000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
-      { id: 8, area: 92, bedrooms: 2, price: 140000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' },
-      { id: 9, area: 105, bedrooms: 3, price: 160000, balcony: true, floor: '+3.10', floorPlan: '/+3.10-1.png' }
-    ],
-    '+6.15': [
-      { id: 10, area: 88, bedrooms: 2, price: 135000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
-      { id: 11, area: 98, bedrooms: 2, price: 155000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
-      { id: 12, area: 115, bedrooms: 3, price: 175000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
-      { id: 13, area: 78, bedrooms: 1, price: 115000, balcony: false, floor: '+6.15', floorPlan: '/+6.15-1.png' },
-      { id: 14, area: 92, bedrooms: 2, price: 145000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
-      { id: 15, area: 102, bedrooms: 2, price: 165000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
-      { id: 16, area: 86, bedrooms: 2, price: 130000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
-      { id: 17, area: 94, bedrooms: 2, price: 150000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' },
-      { id: 18, area: 108, bedrooms: 3, price: 170000, balcony: true, floor: '+6.15', floorPlan: '/+6.15-1.png' }
-    ],
-    '+9.20': [
-      { id: 19, area: 90, bedrooms: 2, price: 145000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
-      { id: 20, area: 100, bedrooms: 2, price: 165000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
-      { id: 21, area: 120, bedrooms: 3, price: 185000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
-      { id: 22, area: 80, bedrooms: 1, price: 125000, balcony: false, floor: '+9.20', floorPlan: '/+9.20-1.png' },
-      { id: 23, area: 95, bedrooms: 2, price: 155000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
-      { id: 24, area: 105, bedrooms: 2, price: 175000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
-      { id: 25, area: 87, bedrooms: 2, price: 140000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
-      { id: 26, area: 97, bedrooms: 2, price: 160000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' },
-      { id: 27, area: 112, bedrooms: 3, price: 180000, balcony: true, floor: '+9.20', floorPlan: '/+9.20-1.png' }
-    ],
-  };
-
-  const handleViewApartment = () => {
-    // Scroll to contact section
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // NOTE: apartment inventory data and view handlers were removed
+  // because they are not currently used in the UI and were causing
+  // TypeScript no-unused-variable build errors.
 
   return (
     <section id="apartments" className="apartments section">

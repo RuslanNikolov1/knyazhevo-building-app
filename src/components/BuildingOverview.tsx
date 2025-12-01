@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Building3D from './Building3D';
-import { openLinkSafely } from '../utils/openLink';
 import OptimizedImage from './OptimizedImage';
 import './BuildingOverview.scss';
 
@@ -34,37 +33,6 @@ const BuildingOverview = () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [modalImage]);
-
-  const features = [
-    {
-      icon: '🏢',
-      title: t('building.floors.ground'),
-      description: t('building.floorDescriptions.ground'),
-      floorPlan: '/+0.00-1.png',
-      image: '/+0.00-1.png'
-    },
-    {
-      icon: '🏠',
-      title: t('building.floors.floor1'),
-      description: t('building.floorDescriptions.floor1'),
-      floorPlan: '/+3.10-1.png',
-      image: '/+3.10-1.png'
-    },
-    {
-      icon: '🏠',
-      title: t('building.floors.floor2'),
-      description: t('building.floorDescriptions.floor2'),
-      floorPlan: '/+6.15-1.png',
-      image: '/+6.15-1.png'
-    },
-    {
-      icon: '🏠',
-      title: t('building.floors.floor3'),
-      description: t('building.floorDescriptions.floor3'),
-      floorPlan: '/+9.20-1.png',
-      image: '/+9.20-1.png'
-    }
-  ];
 
   return (
     <section id="building" className="building-overview section">
