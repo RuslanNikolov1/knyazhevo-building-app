@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Phone, EnvelopeSimple } from '@phosphor-icons/react';
 import './Contact.scss';
 
 const Contact = () => {
@@ -13,13 +14,13 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: '📱',
+      icon: <Phone size={22} weight="fill" color="var(--white)" />,
       title: t('contact.phoneTitle'),
       details: t('contact.phoneDetails', { returnObjects: true }) as string[],
       type: 'phone'
     },
     {
-      icon: '✉️',
+      icon: <EnvelopeSimple size={22} weight="regular" color="var(--white)" />,
       title: t('contact.emailTitle'),
       type: 'email'
     }
@@ -41,7 +42,12 @@ const Contact = () => {
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              📞 {t('contact.title')}
+              <Phone
+                size={50}
+                weight="fill"
+                color="var(--accent-pine)"
+              />
+              {t('contact.title')}
             </motion.h2>
           </div>
 

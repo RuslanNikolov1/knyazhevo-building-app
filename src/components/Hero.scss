@@ -5,6 +5,7 @@
   align-items: center;
   overflow: hidden;
   padding-top: calc(var(--header-height) + var(--safe-area-top));
+  background: var(--white);
 }
 
 .hero-background {

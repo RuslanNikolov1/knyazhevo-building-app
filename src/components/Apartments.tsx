@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { HouseSimple, Buildings } from '@phosphor-icons/react';
 import { openLinkSafely } from '../utils/openLink';
 import './Apartments.scss';
 
@@ -28,11 +29,27 @@ const highlightPrimaryPrice = (text: string) => {
 const Apartments = () => {
   const { t } = useTranslation();
   const [selectedTab, setSelectedTab] = useState('floors');
+  const [modalImage, setModalImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setModalImage(null);
+      }
+    };
+
+    if (modalImage) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [modalImage]);
 
   const tabs = [
     { id: 'floors', name: t('apartments.floors'), available: 27, type: 'apartment' },
-    { id: 'garage', name: t('apartments.garage'), available: 24, type: 'garage' },
-    { id: 'parking', name: t('apartments.parkingSpaces'), available: 27, type: 'parking' }
+    { id: 'garageParking', name: t('apartments.garageParking'), available: 51, type: 'garageParking' }
   ];
 
   // const parkingSpaces = [
@@ -151,7 +168,12 @@ const Apartments = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              🏠 {t('apartments.title')}
+              <HouseSimple
+                size={50}
+                weight="fill"
+                color="var(--white)"
+              />
+              {t('apartments.title')}
             </motion.h2>
           </div>
 
@@ -168,31 +190,85 @@ const Apartments = () => {
                 onClick={() => setSelectedTab(tab.id)}
               >
                 <span className="floor-name">{tab.name}</span>
-                <span className="floor-available">{tab.available} {t('building.availability.available')}</span>
               </button>
             ))}
           </motion.div>
 
-          {selectedTab === 'parking' && (
-            <motion.div
-              className="pricing-info"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <h3>{t('apartments.parkingPricing')}</h3>
-            </motion.div>
-          )}
+          {selectedTab === 'garageParking' && (
+            <>
+              <div className="garage-legend">
+                <div className="garage-legend-item">
+                  <span className="garage-legend-dot garage-legend-dot-red" />
+                  <span>
+                    {t('apartments.garageLegend.doubleParallelPrefix')}{' '}
+                    <span className="garage-legend-price-badge">
+                      {t('apartments.garageLegend.doubleParallelValue')}
+                    </span>{' '}
+                    {t('apartments.garageLegend.doubleParallelSuffix')}
+                  </span>
+                </div>
+                <div className="garage-legend-item">
+                  <span className="garage-legend-dot garage-legend-dot-orange" />
+                  <span>
+                    {t('apartments.garageLegend.doubleTandemPrefix')}{' '}
+                    <span className="garage-legend-price-badge">
+                      {t('apartments.garageLegend.doubleTandemValue')}
+                    </span>{' '}
+                    {t('apartments.garageLegend.doubleTandemSuffix')}
+                  </span>
+                </div>
+                <div className="garage-legend-item">
+                  <span className="garage-legend-dot garage-legend-dot-yellow" />
+                  <span>
+                    {t('apartments.garageLegend.singleGaragesPrefix')}{' '}
+                    <span className="garage-legend-price-badge">
+                      {t('apartments.garageLegend.singleGaragesValue')}
+                    </span>{' '}
+                    {t('apartments.garageLegend.singleGaragesSuffix')}
+                  </span>
+                </div>
+                <div className="garage-legend-item">
+                  <span className="garage-legend-dot garage-legend-dot-light-blue" />
+                  <span>
+                    {t('apartments.garageLegend.doubleParkingSpacesPrefix')}{' '}
+                    <span className="garage-legend-price-badge">
+                      {t('apartments.garageLegend.doubleParkingSpacesValue')}
+                    </span>{' '}
+                    {t('apartments.garageLegend.doubleParkingSpacesSuffix')}
+                  </span>
+                </div>
+                <div className="garage-legend-item">
+                  <span className="garage-legend-dot garage-legend-dot-blue" />
+                  <span>
+                    {t('apartments.garageLegend.singleParkingSpacesPrefix')}{' '}
+                    <span className="garage-legend-price-badge">
+                      {t('apartments.garageLegend.singleParkingSpacesValue')}
+                    </span>{' '}
+                    {t('apartments.garageLegend.singleParkingSpacesSuffix')}
+                  </span>
+                </div>
+              </div>
 
-          {selectedTab === 'garage' && (
-            <motion.div
-              className="pricing-info"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <h3>{t('apartments.garagePricing')}</h3>
-            </motion.div>
+              <motion.div
+                className="garage-colored-wrapper"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <div className="garage-colored-card" style={{ position: 'relative' }}>
+                  <span className="image-full-view-hint">{t('building.clickToViewFullPlan')}</span>
+                  <img
+                    src="/garages-colored.png"
+                    alt="Garages and parking layout"
+                    className="garage-colored-image"
+                    loading="lazy"
+                    onClick={() => setModalImage('/garages-colored.png')}
+                    style={{ cursor: 'pointer' }}
+                  />
+                </div>
+              </motion.div>
+              
+            </>
           )}
 
           {selectedTab === 'floors' && (
@@ -235,6 +311,94 @@ const Apartments = () => {
                 <p className="pricing-disclaimer">
                   {t('apartments.lastFloorNotOffered')}
                 </p>
+              </motion.div>
+
+              <motion.div
+                className="apartments-floor-features"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+              >
+                <div className="features-grid">
+                  <div
+                    className="feature-card"
+                    onClick={() => openLinkSafely('/+3.10-1.png')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <div className="feature-header">
+                      <div className="feature-icon">
+                        <span><Buildings size={22} weight="regular" color="var(--white)" /></span>
+                      </div>
+                      <h3>{t('building.floors.floor1')}</h3>
+                    </div>
+                    <div className="feature-image" style={{ position: 'relative' }}>
+                      <span className="image-full-view-hint">{t('building.clickToViewFullPlan')}</span>
+                      <img
+                        src="/+3.10-1.png"
+                        alt={`Floor plan for ${t('building.floors.floor1')}`}
+                        className="full-width-floor-plan"
+                        loading="lazy"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setModalImage('/+3.10-1.png');
+                        }}
+                        style={{ cursor: 'pointer' }}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="feature-card"
+                    onClick={() => openLinkSafely('/+6.15-1.png')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <div className="feature-header">
+                      <div className="feature-icon">
+                        <span><Buildings size={22} weight="regular" color="var(--white)" /></span>
+                      </div>
+                      <h3>{t('building.floors.floor2')}</h3>
+                    </div>
+                    <div className="feature-image" style={{ position: 'relative' }}>
+                      <span className="image-full-view-hint">{t('building.clickToViewFullPlan')}</span>
+                      <img
+                        src="/+6.15-1.png"
+                        alt={`Floor plan for ${t('building.floors.floor2')}`}
+                        className="full-width-floor-plan"
+                        loading="lazy"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setModalImage('/+6.15-1.png');
+                        }}
+                        style={{ cursor: 'pointer' }}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="feature-card"
+                    onClick={() => openLinkSafely('/+9.20-1.png')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <div className="feature-header">
+                      <div className="feature-icon">
+                        <span><Buildings size={22} weight="regular" color="var(--white)" /></span>
+                      </div>
+                      <h3>{t('building.floors.floor3')}</h3>
+                    </div>
+                    <div className="feature-image" style={{ position: 'relative' }}>
+                      <span className="image-full-view-hint">{t('building.clickToViewFullPlan')}</span>
+                      <img
+                        src="/+9.20-1.png"
+                        alt={`Floor plan for ${t('building.floors.floor3')}`}
+                        className="full-width-floor-plan"
+                        loading="lazy"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setModalImage('/+9.20-1.png');
+                        }}
+                        style={{ cursor: 'pointer' }}
+                      />
+                    </div>
+                  </div>
+                </div>
               </motion.div>
 
               <motion.div
@@ -366,77 +530,34 @@ const Apartments = () => {
             </>
           )}
 
-          <motion.div
-            className="apartments-grid"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            key={selectedTab}
-          >
-            {selectedTab === 'parking' && (
-              <div className="parking-garage-container">
-                  <div className="pdf-card">
-                    <div className="pdf-header">
-                      <h3>{t('apartments.parkingSpacesPlan')}</h3>
-                      <p>{t('apartments.parkingSpacesAvailable')}</p>
-                    </div>
-                  <div className="pdf-viewer">
-                    <img
-                      src="/+0.00-1.png"
-                      alt={t('apartments.parkingPlan')}
-                      className="floor-plan-image"
-                      loading="lazy"
-                    />
-                    <div className="pdf-overlay">
-                      <div className="mobile-hint">
-                        <span className="desktop-text">{t('building.mobileHints.clickToView')}</span>
-                        <span className="mobile-text">{t('building.mobileHints.tapToOpen')}</span>
-                      </div>
-                      <button 
-                        className="view-pdf-btn"
-                        onClick={() => openLinkSafely('/+0.00-1.png')}
-                      >
-                        Отвори пълен план
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {selectedTab === 'garage' && (
-              <div className="parking-garage-container">
-                  <div className="pdf-card">
-                    <div className="pdf-header">
-                      <h3>{t('apartments.garagePlanTitle')}</h3>
-                      <p>{t('apartments.garageSpacesAvailable')}</p>
-                    </div>
-                  <div className="pdf-viewer">
-                    <img
-                      src="/+0.00-1.png"
-                      alt={t('apartments.garagePlan')}
-                      className="floor-plan-image"
-                      loading="lazy"
-                    />
-                    <div className="pdf-overlay">
-                      <div className="mobile-hint">
-                        <span className="desktop-text">{t('building.mobileHints.clickToView')}</span>
-                        <span className="mobile-text">{t('building.mobileHints.tapToOpen')}</span>
-                      </div>
-                      <button 
-                        className="view-pdf-btn"
-                        onClick={() => openLinkSafely('/+0.00-1.png')}
-                      >
-                        Отвори пълен план
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </motion.div>
         </motion.div>
       </div>
+
+      {/* Image Modal */}
+      {modalImage && (
+        <div 
+          className="image-modal-overlay"
+          onClick={() => setModalImage(null)}
+        >
+          <div 
+            className="image-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              className="image-modal-close"
+              onClick={() => setModalImage(null)}
+              aria-label="Close modal"
+            >
+              ×
+            </button>
+            <img
+              src={modalImage}
+              alt="Full size view"
+              className="image-modal-image"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };

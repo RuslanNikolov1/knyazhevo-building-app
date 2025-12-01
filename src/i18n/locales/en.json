@@ -30,9 +30,12 @@
     "stats": {
       "floors": "FLOORS",
       "apartments": "APARTMENTS",
+      "garages": "GARAGES",
+      "parkingSpaces": "PARKING SPACES",
       "completion": "COMPLETION"
     },
     "situation": "Building Situation",
+    "architecturalTitle": "Architectural visualization",
     "locationTitle": "st. Vitoshki Izvori 4",
     "location": "Location",
     "address": "Knyazhevo Vitosha Quarter, Vitoshki Izvori St 4, 1619 Sofia",
@@ -71,6 +74,7 @@
     "eur": "EUR",
     "floorPlan": "Floor Plan",
     "viewFullPlan": "View Full Plan",
+    "clickForFullView": "Click for full view",
     "parkingPlan": "Parking Plan",
     "garagePlan": "Garage Plan",
     "parkingSpacesAvailable": "24 parking spaces available",
@@ -79,8 +83,26 @@
     "garagePlanTitle": "Garage - Plan",
     "parkingSpaces": "Parking Spaces",
     "garage": "Garage",
+    "garageParking": "Garages/Parking Spaces",
     "parkingPricing": "Parking spaces from 17,000 euros without VAT",
     "garagePricing": "Garages from 20,000 euros without VAT",
+    "garageLegend": {
+      "doubleParallelPrefix": "Red - Double garages with side-by-side parking -",
+      "doubleParallelValue": "33 thousand",
+      "doubleParallelSuffix": "euros without VAT",
+      "doubleTandemPrefix": "Orange - Double garages with tandem parking -",
+      "doubleTandemValue": "29 thousand",
+      "doubleTandemSuffix": "euros without VAT",
+      "singleGaragesPrefix": "Yellow - Single garages -",
+      "singleGaragesValue": "16.5 thousand",
+      "singleGaragesSuffix": "euros without VAT",
+      "doubleParkingSpacesPrefix": "Light blue - Double parking spaces -",
+      "doubleParkingSpacesValue": "25 thousand",
+      "doubleParkingSpacesSuffix": "euros without VAT",
+      "singleParkingSpacesPrefix": "Blue - Single parking spaces -",
+      "singleParkingSpacesValue": "8.5 thousand",
+      "singleParkingSpacesSuffix": "euros without VAT"
+    },
     "apartmentPricingTitle": "Apartment pricing",
     "apartmentPricing": "Apartments are sold at 1,400 euros/sq. m under construction without VAT",
     "maisonettesPricingLabel": "Maisonettes",
@@ -173,6 +195,11 @@
     "email": "sofiaforestresidence@gmail.com",
     "hours": "Mon-Fri: 9:00-18:00",
     "createdBy": "Created by"
+  },
+  "languages": {
+    "bg": "Bulgarian",
+    "en": "English",
+    "ru": "Russian"
   },
   "construction": {
     "title": "Construction Progress",

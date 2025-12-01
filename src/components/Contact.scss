@@ -1,5 +1,5 @@
 .contact {
-  background: var(--white);
+  background: var(--light-gray);
   position: relative;
 }
 
@@ -15,6 +15,10 @@
   h2 {
     color: var(--primary-dark);
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
   }
 }
 
@@ -61,7 +65,7 @@
 
 .contact-item {
   display: flex;
-  align-items: center;      /* center horizontally */
+  align-items: flex-start;
   gap: 1rem;
   padding: 1rem;
   background: var(--light-gray);
@@ -86,6 +90,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   font-size: 1.2rem;
   box-shadow: 0 2px 10px rgba(90, 138, 106, 0.3);
 }

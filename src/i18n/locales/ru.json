@@ -30,9 +30,12 @@
     "stats": {
       "floors": "ЭТАЖЕЙ",
       "apartments": "КВАРТИР",
+      "garages": "ГАРАЖЕЙ",
+      "parkingSpaces": "ПАРКОВОЧНЫХ МЕСТ",
       "completion": "ЗАВЕРШЕНИЕ"
     },
     "situation": "Строительная ситуация",
+    "architecturalTitle": "Архитектурная визуализация",
     "locationTitle": "ул. Витошки извори 4",
     "location": "Местоположение",
     "address": "кв. КняжевоВитоша, ул. Витошки извори 4, 1619 София",
@@ -71,6 +74,7 @@
     "eur": "EUR",
     "floorPlan": "План этажа",
     "viewFullPlan": "Посмотреть полный план",
+    "clickForFullView": "Нажмите для полного просмотра",
     "parkingPlan": "План парковки",
     "garagePlan": "План гаража",
     "parkingSpacesAvailable": "24 парковочных места доступно",
@@ -79,8 +83,26 @@
     "garagePlanTitle": "Гараж - План",
     "parkingSpaces": "Парковочные места",
     "garage": "Гараж",
+    "garageParking": "Гаражи/Парковочные места",
     "parkingPricing": "Парковочные места от 17 тыс. евро без НДС",
     "garagePricing": "Гаражи от 20 тыс. евро без НДС",
+    "garageLegend": {
+      "doubleParallelPrefix": "Красный - Двойные гаражи с параллельной парковкой -",
+      "doubleParallelValue": "33 тысячи",
+      "doubleParallelSuffix": "евро без НДС",
+      "doubleTandemPrefix": "Оранжевый - Двойные гаражи с парковкой один за другим -",
+      "doubleTandemValue": "29 тысяч",
+      "doubleTandemSuffix": "евро без НДС",
+      "singleGaragesPrefix": "Жёлтый - Одиночные гаражи -",
+      "singleGaragesValue": "16,5 тысячи",
+      "singleGaragesSuffix": "евро без НДС",
+      "doubleParkingSpacesPrefix": "Светло-синий - Двойные парковочные места -",
+      "doubleParkingSpacesValue": "25 тысяч",
+      "doubleParkingSpacesSuffix": "евро без НДС",
+      "singleParkingSpacesPrefix": "Синий - Одиночные парковочные места -",
+      "singleParkingSpacesValue": "8,5 тысяч",
+      "singleParkingSpacesSuffix": "евро без НДС"
+    },
     "apartmentPricingTitle": "Стоимость квартир",
     "apartmentPricing": "Квартиры продаются по 1400 евро/кв. м на стадии строительства без НДС",
     "maisonettesPricingLabel": "Мезонеты",
@@ -173,6 +195,11 @@
     "email": "sofiaforestresidence@gmail.com",
     "hours": "Пн-Пт: 9:00-18:00",
     "createdBy": "Создано"
+  },
+  "languages": {
+    "bg": "Болгарский",
+    "en": "Английский",
+    "ru": "Русский"
   },
   "construction": {
     "title": "Строительный прогресс",

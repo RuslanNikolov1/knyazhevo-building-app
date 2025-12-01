@@ -91,7 +91,7 @@ const Header = () => {
                   aria-label="Switch to Bulgarian"
                 >
                   <img src="/bg.png" alt="Bulgarian flag" className="mobile-flag-image" />
-                  <span className="lang-text">Български</span>
+                  <span className="lang-text">{t('languages.bg')}</span>
                 </button>
                 <button
                   onClick={() => changeLanguage('en')}
@@ -99,7 +99,7 @@ const Header = () => {
                   aria-label="Switch to English"
                 >
                   <img src="/uk.png" alt="UK flag" className="mobile-flag-image" />
-                  <span className="lang-text">English</span>
+                  <span className="lang-text">{t('languages.en')}</span>
                 </button>
                 <button
                   onClick={() => changeLanguage('ru')}
@@ -107,7 +107,7 @@ const Header = () => {
                   aria-label="Switch to Russian"
                 >
                   <img src="/rus.png" alt="Russian flag" className="mobile-flag-image" />
-                  <span className="lang-text">Русский</span>
+                  <span className="lang-text">{t('languages.ru')}</span>
                 </button>
               </div>
             </div>
@@ -157,7 +157,7 @@ const Header = () => {
                 onClick={() => changeLanguage('bg')}
                 className={`lang-btn ${i18n.language === 'bg' ? 'active' : ''}`}
                 aria-label="Switch to Bulgarian"
-                title="Български"
+                title={t('languages.bg')}
               >
                 <img src="/bg.png" alt="Bulgarian flag" className="flag-image" />
               </button>
@@ -165,7 +165,7 @@ const Header = () => {
                 onClick={() => changeLanguage('en')}
                 className={`lang-btn ${i18n.language === 'en' ? 'active' : ''}`}
                 aria-label="Switch to English"
-                title="English"
+                title={t('languages.en')}
               >
                 <img src="/uk.png" alt="UK flag" className="flag-image" />
               </button>
@@ -173,7 +173,7 @@ const Header = () => {
                 onClick={() => changeLanguage('ru')}
                 className={`lang-btn ${i18n.language === 'ru' ? 'active' : ''}`}
                 aria-label="Switch to Russian"
-                title="Русский"
+                title={t('languages.ru')}
               >
                 <img src="/rus.png" alt="Russian flag" className="flag-image" />
               </button>

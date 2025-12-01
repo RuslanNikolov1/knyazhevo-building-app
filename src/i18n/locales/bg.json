@@ -30,9 +30,12 @@
     "stats": {
       "floors": "ЕТАЖА",
       "apartments": "АПАРТАМЕНТА",
+      "garages": "ГАРАЖА",
+      "parkingSpaces": "ПАРКОМЕСТА",
       "completion": "ЗАВЪРШВАНЕ"
     },
     "situation": "Строителна ситуация",
+    "architecturalTitle": "Архитектурна визуализация",
     "locationTitle": "ул. Витошки извори 4",
     "location": "Местоположение",
     "address": "кв. КняжевоВитоша, ул. \"Витошки извори\" 4, 1619 София",
@@ -80,8 +83,26 @@
     "garagePlanTitle": "Гараж - План",
     "parkingSpaces": "Парко места",
     "garage": "Гараж",
+    "garageParking": "Гаражи/Паркоместа",
     "parkingPricing": "Парко места от 17 хил.евро без ДДС",
     "garagePricing": "Гаражи от 20 хил.евро без ДДС",
+    "garageLegend": {
+      "doubleParallelPrefix": "Червено - Двойни гаражи с успоредно паркиране -",
+      "doubleParallelValue": "33 000",
+      "doubleParallelSuffix": "евро без ДДС",
+      "doubleTandemPrefix": "Оранжево - Двойни гаражи с паркиране една зад друга -",
+      "doubleTandemValue": "29 000",
+      "doubleTandemSuffix": "евро без ДДС",
+      "singleGaragesPrefix": "Жълто - Единични гаражи -",
+      "singleGaragesValue": "16 500",
+      "singleGaragesSuffix": "евро без ДДС",
+      "doubleParkingSpacesPrefix": "Светло синьо - Двойни паркоместа -",
+      "doubleParkingSpacesValue": "25 000",
+      "doubleParkingSpacesSuffix": "евро без ДДС",
+      "singleParkingSpacesPrefix": "Синьо - Единични паркоместа -",
+      "singleParkingSpacesValue": "8 500",
+      "singleParkingSpacesSuffix": "евро без ДДС"
+    },
     "apartmentPricingTitle": "Цени на апартаментите",
     "apartmentPricing": "Апартаментите се продават на 1400 евро/кв. м на зелено без ДДС",
     "maisonettesPricingLabel": "Мезонетите",
@@ -174,6 +195,11 @@
     "email": "sofiaforestresidence@gmail.com",
     "hours": "Пн-Пт: 9:00-18:00",
     "createdBy": "Създадено от"
+  },
+  "languages": {
+    "bg": "Български",
+    "en": "English",
+    "ru": "Руски"
   },
   "construction": {
     "title": "Строителен прогрес",

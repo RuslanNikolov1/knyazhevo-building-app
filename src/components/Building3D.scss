@@ -4,6 +4,11 @@
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  background: var(--light-gray);
+  padding: 3rem 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-medium);
+  border-top: 3px solid var(--accent-pine);
 }
 
 .building-3d-header {
@@ -30,7 +35,6 @@
   overflow: hidden;
   box-shadow: var(--shadow-heavy);
   background: var(--white);
-  border: 3px solid var(--accent-forest);
   margin-bottom: 2rem;
   transition: all var(--transition-medium);
   height: 60vh;

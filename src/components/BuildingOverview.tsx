@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -17,6 +17,23 @@ const BuildingOverview = () => {
     rootMargin: '50px 0px'
   });
   const [isMapExpanded, setIsMapExpanded] = useState(true);
+  const [modalImage, setModalImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setModalImage(null);
+      }
+    };
+
+    if (modalImage) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [modalImage]);
 
   const features = [
     {
@@ -132,19 +149,19 @@ const BuildingOverview = () => {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <h3>🏗️ Архитектурна визуализация</h3>
+            <h3>{t('building.architecturalTitle')}</h3>
             <div className="plan-images">
               <div className="plan-images-row">
                 <div 
                   className="plan-image"
-                  onClick={() => openLinkSafely('/1.jpg')}
+                  onClick={() => setModalImage('/1.jpg')}
                   style={{ cursor: 'pointer' }}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
-                      openLinkSafely('/1.jpg');
+                      setModalImage('/1.jpg');
                     }
                   }}
                   aria-label="View full size building facade view 1"
@@ -165,14 +182,14 @@ const BuildingOverview = () => {
                 </div>
                 <div 
                   className="plan-image"
-                  onClick={() => openLinkSafely('/2.jpg')}
+                  onClick={() => setModalImage('/2.jpg')}
                   style={{ cursor: 'pointer' }}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
-                      openLinkSafely('/2.jpg');
+                      setModalImage('/2.jpg');
                     }
                   }}
                   aria-label="View full size building facade view 2"
@@ -195,14 +212,14 @@ const BuildingOverview = () => {
               <div className="plan-images-row">
                 <div 
                   className="plan-image"
-                  onClick={() => openLinkSafely('/3.jpg')}
+                  onClick={() => setModalImage('/3.jpg')}
                   style={{ cursor: 'pointer' }}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
-                      openLinkSafely('/3.jpg');
+                      setModalImage('/3.jpg');
                     }
                   }}
                   aria-label="View full size building facade view 3"
@@ -223,14 +240,14 @@ const BuildingOverview = () => {
                 </div>
                 <div 
                   className="plan-image"
-                  onClick={() => openLinkSafely('/4.jpg')}
+                  onClick={() => setModalImage('/4.jpg')}
                   style={{ cursor: 'pointer' }}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
-                      openLinkSafely('/4.jpg');
+                      setModalImage('/4.jpg');
                     }
                   }}
                   aria-label="View full size building facade view 4"
@@ -261,16 +278,23 @@ const BuildingOverview = () => {
           >
             <h3>📍 {t('building.situation')}</h3>
             <div className="situation-container">
+              <button
+                type="button"
+                className="situation-full-view-hint"
+                onClick={() => setModalImage(`/situation.png?v=${cacheBuster}`)}
+              >
+                {t('apartments.clickForFullView')}
+              </button>
               <div 
                 className="situation-image"
-                onClick={() => openLinkSafely(`/situation.png?v=${cacheBuster}`)}
+                onClick={() => setModalImage(`/situation.png?v=${cacheBuster}`)}
                 style={{ cursor: 'pointer' }}
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    openLinkSafely(`/situation.png?v=${cacheBuster}`);
+                    setModalImage(`/situation.png?v=${cacheBuster}`);
                   }
                 }}
                 aria-label="View full size building situation plan"
@@ -312,63 +336,7 @@ const BuildingOverview = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            className="building-features"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-            <h3 className="features-title">🏢 {t('building.stats.floors')}</h3>
-            <div className="features-grid">
-              {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                className="feature-card"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                whileHover={{ 
-                  y: -5,
-                  transition: { duration: 0.2 }
-                }}
-                onClick={() => openLinkSafely(feature.floorPlan)}
-                style={{ cursor: 'pointer' }}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openLinkSafely(feature.floorPlan);
-                  }
-                }}
-                aria-label={`View floor plan for ${feature.title}`}
-              >
-                <div className="feature-header">
-                  <div className="feature-icon">
-                    <span>{feature.icon}</span>
-                  </div>
-                  <h3>{feature.title}</h3>
-                </div>
-                <div className="feature-image">
-                  <OptimizedImage
-                    src={feature.image}
-                    alt={`Floor plan for ${feature.title}`}
-                    width={400}
-                    height={300}
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 400px"
-                  />
-                </div>
-                <div className="feature-content">
-                  <div className="view-plan-hint">
-                    <span>{t('building.clickToViewFullFloorPlan')} →</span>
-                  </div>
-                </div>
-              </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          
 
 
           <motion.div
@@ -389,12 +357,12 @@ const BuildingOverview = () => {
             </div>
             <div className="stat-item stat-garages">
               <div className="stat-number">26</div>
-              <div className="stat-label">Гаража</div>
+              <div className="stat-label">{t('building.stats.garages')}</div>
               <OptimizedImage src={`/stats-garages.png?v=${cacheBuster}`} alt="Garages" width={100} height={100} className="stat-image" sizes="100px" />
             </div>
             <div className="stat-item stat-parking">
               <div className="stat-number">5</div>
-              <div className="stat-label">Паркоместа</div>
+              <div className="stat-label">{t('building.stats.parkingSpaces')}</div>
               <OptimizedImage src={`/stats-parking-space.png?v=${cacheBuster}`} alt="Parking" width={100} height={100} className="stat-image" sizes="100px" />
             </div>
             <div className="stat-item stat-completion">
@@ -406,6 +374,32 @@ const BuildingOverview = () => {
 
         </motion.div>
       </div>
+
+      {/* Image Modal */}
+      {modalImage && (
+        <div 
+          className="image-modal-overlay"
+          onClick={() => setModalImage(null)}
+        >
+          <div 
+            className="image-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              className="image-modal-close"
+              onClick={() => setModalImage(null)}
+              aria-label="Close modal"
+            >
+              ×
+            </button>
+            <img
+              src={modalImage}
+              alt="Full size view"
+              className="image-modal-image"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
