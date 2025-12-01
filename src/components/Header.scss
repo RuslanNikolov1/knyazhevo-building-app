@@ -238,15 +238,12 @@
   background: transparent;
   border: 2px solid var(--accent-forest);
   color: var(--text-secondary);
-  padding: 0.4rem;
   border-radius: 8px;
   cursor: pointer;
   transition: all var(--transition-fast);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 48px;
-  height: 36px;
   position: relative;
   overflow: hidden;
 

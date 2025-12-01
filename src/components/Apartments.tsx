@@ -4,16 +4,35 @@ import { motion } from 'framer-motion';
 import { openLinkSafely } from '../utils/openLink';
 import './Apartments.scss';
 
+const stripPercentPrefix = (text: string) => text.replace(/^\d+% ?-? ?/, '');
+const highlightPrimaryPrice = (text: string) => {
+  const match = text.match(/(\d[\d\s.,]*)/);
+  if (!match) {
+    return text;
+  }
+
+  const [value] = match;
+  const startIndex = text.indexOf(value);
+  const before = text.slice(0, startIndex);
+  const after = text.slice(startIndex + value.length);
+
+  return (
+    <>
+      {before}
+      <span className="pricing-highlight-value">{value}</span>
+      {after}
+    </>
+  );
+};
+
 const Apartments = () => {
   const { t } = useTranslation();
-  const [selectedTab, setSelectedTab] = useState('parking');
+  const [selectedTab, setSelectedTab] = useState('floors');
 
   const tabs = [
-    { id: 'parking', name: t('apartments.parkingSpaces'), available: 27, type: 'parking' },
+    { id: 'floors', name: t('apartments.floors'), available: 27, type: 'apartment' },
     { id: 'garage', name: t('apartments.garage'), available: 24, type: 'garage' },
-    { id: '+3.10', name: t('building.floors.floor1'), available: 9, type: 'apartment' },
-    { id: '+6.15', name: t('building.floors.floor2'), available: 9, type: 'apartment' },
-    { id: '+9.20', name: t('building.floors.floor3'), available: 9, type: 'apartment' }
+    { id: 'parking', name: t('apartments.parkingSpaces'), available: 27, type: 'parking' }
   ];
 
   // const parkingSpaces = [
@@ -161,7 +180,7 @@ const Apartments = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <h3>Парко места от 17 хил.евро без ддс</h3>
+              <h3>{t('apartments.parkingPricing')}</h3>
             </motion.div>
           )}
 
@@ -172,25 +191,179 @@ const Apartments = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <h3>Гаражи от 20 хил.евро без ДДС</h3>
+              <h3>{t('apartments.garagePricing')}</h3>
             </motion.div>
           )}
 
-          {selectedTab !== 'parking' && selectedTab !== 'garage' && (
-            <motion.div
-              className="pricing-info"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <h3>Сега на зелено 1400 евро/кв.м без ддс ( при 20% първоначално плащане )</h3>
-              <div className="payment-schedule">
-                <p>На акт 14 - 60 %</p>
-                <p>На акт 15 - 10 %</p>
-                <p>На акт 16 - 10 %</p>
-              </div>
-              <p className="discount-info">При плащане на 50% или повече първоначално цена от 1350 евро/кв м без ддс )</p>
-            </motion.div>
+          {selectedTab === 'floors' && (
+            <>
+              <motion.div
+                className="pricing-info"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <h3>{t('apartments.apartmentPricingTitle')}</h3>
+                <div className="pricing-highlight-row">
+                  <p className="pricing-highlight">
+                    {highlightPrimaryPrice(t('apartments.apartmentPricing'))}
+                  </p>
+                  <p className="pricing-highlight maisonettes-highlight">
+                    <span className="maisonettes-row maisonettes-row-intro">
+                      <span className="maisonettes-label">
+                        {t('apartments.maisonettesPricingLabel')}
+                      </span>
+                      <span className="maisonettes-intro">
+                        <span className="maisonettes-intro-numbers">
+                          {t('apartments.maisonettesPricingIntroNumbers')}
+                        </span>
+                        <span className="maisonettes-intro-rest">
+                          {t('apartments.maisonettesPricingIntroRest')}
+                        </span>
+                      </span>
+                    </span>
+                    <span className="maisonettes-row maisonettes-row-value">
+                      <span className="pricing-highlight-value maisonettes-value">
+                        {t('apartments.maisonettesPricingValue')}
+                      </span>
+                    </span>
+                    <span className="maisonettes-row maisonettes-row-suffix">
+                      {t('apartments.maisonettesPricingSuffix')}
+                    </span>
+                  </p>
+                </div>
+                <p className="pricing-disclaimer">
+                  {t('apartments.lastFloorNotOffered')}
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="payment-plans"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                <h3 className="payment-plans-title">{t('apartments.paymentPlansTitle')}</h3>
+                <p className="payment-plans-note">
+                  {t('apartments.paymentPlansNegotiationNote')}
+                </p>
+                
+                <div className="payment-plan payment-plan-visual">
+                  <h4 className="payment-plan-title">{t('apartments.paymentPlan1Title')}</h4>
+                  <p className="payment-plan-subtitle">{t('apartments.paymentPlan1Subtitle')}</p>
+                  <div className="payment-bar-container">
+                    <div className="payment-bar">
+                      <div className="payment-segment segment-1" style={{ height: '40%' }}>
+                        <span className="payment-label">40 %</span>
+                      </div>
+                      <div className="payment-segment segment-2" style={{ height: '10%' }}>
+                        <span className="payment-label">10 %</span>
+                      </div>
+                      <div className="payment-segment segment-3" style={{ height: '40%' }}>
+                        <span className="payment-label">40 %</span>
+                      </div>
+                      <div className="payment-segment segment-4" style={{ height: '10%' }}>
+                        <span className="payment-label">10 %</span>
+                      </div>
+                    </div>
+                    <div className="payment-descriptions">
+                      <div className="payment-desc-item" style={{ height: '40%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan1Step1'))}
+                      </div>
+                      <div className="payment-desc-item" style={{ height: '10%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan1Step2'))}
+                      </div>
+                      <div className="payment-desc-item" style={{ height: '40%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan1Step3'))}
+                      </div>
+                      <div className="payment-desc-item" style={{ height: '10%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan1Step4'))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="payment-plan payment-plan-visual">
+                  <h4 className="payment-plan-title">{t('apartments.paymentPlan2Title')}</h4>
+                  <p className="payment-plan-subtitle">{t('apartments.paymentPlan2Subtitle')}</p>
+                  <div className="payment-bar-container">
+                    <div className="payment-bar">
+                      <div className="payment-segment segment-1" style={{ height: '30%' }}>
+                        <span className="payment-label">30 %</span>
+                      </div>
+                      <div className="payment-segment segment-2" style={{ height: '10%' }}>
+                        <span className="payment-label">10 %</span>
+                      </div>
+                      <div className="payment-segment segment-3" style={{ height: '30%' }}>
+                        <span className="payment-label">30 %</span>
+                      </div>
+                      <div className="payment-segment segment-4" style={{ height: '10%' }}>
+                        <span className="payment-label">10 %</span>
+                      </div>
+                      <div className="payment-segment segment-5" style={{ height: '10%' }}>
+                        <span className="payment-label">10 %</span>
+                      </div>
+                      <div className="payment-segment segment-6" style={{ height: '10%' }}>
+                        <span className="payment-label">10 %</span>
+                      </div>
+                    </div>
+                    <div className="payment-descriptions">
+                      <div className="payment-desc-item" style={{ height: '30%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan2Step1'))}
+                      </div>
+                      <div className="payment-desc-item" style={{ height: '10%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan2Step2'))}
+                      </div>
+                      <div className="payment-desc-item" style={{ height: '30%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan2Step3'))}
+                      </div>
+                      <div className="payment-desc-item" style={{ height: '10%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan2Step4'))}
+                      </div>
+                      <div className="payment-desc-item" style={{ height: '10%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan2Step5'))}
+                      </div>
+                      <div className="payment-desc-item" style={{ height: '10%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan2Step6'))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="payment-plan payment-plan-visual">
+                  <h4 className="payment-plan-title">{t('apartments.paymentPlan3Title')}</h4>
+                  <p className="payment-plan-subtitle">{t('apartments.paymentPlan3Subtitle')}</p>
+                  <div className="payment-bar-container">
+                    <div className="payment-bar">
+                      <div className="payment-segment segment-1" style={{ height: '30%' }}>
+                        <span className="payment-label">30 %</span>
+                      </div>
+                      <div className="payment-segment segment-2" style={{ height: '60%' }}>
+                        <span className="payment-label">60 %</span>
+                      </div>
+                      <div className="payment-segment segment-3" style={{ height: '10%' }}>
+                        <span className="payment-label">10 %</span>
+                      </div>
+                    </div>
+                    <div className="payment-descriptions">
+                      <div className="payment-desc-item" style={{ height: '30%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan3Step1'))}
+                      </div>
+                      <div className="payment-desc-item" style={{ height: '60%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan3Step2'))}
+                      </div>
+                      <div className="payment-desc-item" style={{ height: '10%' }}>
+                        {stripPercentPrefix(t('apartments.paymentPlan3Step3'))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="payment-plan-notes">
+                    <p>{t('apartments.paymentPlan3Step4')}</p>
+                    <p>{t('apartments.paymentPlan3Step5')}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </>
           )}
 
           <motion.div
@@ -261,94 +434,6 @@ const Apartments = () => {
                 </div>
               </div>
             )}
-
-            {selectedTab !== 'parking' && selectedTab !== 'garage' && apartments[selectedTab as keyof typeof apartments]?.map((apartment, index) => (
-              <motion.div
-                key={apartment.id}
-                className="apartment-card"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ 
-                  y: -5,
-                  transition: { duration: 0.2 }
-                }}
-              >
-                <div className="apartment-image">
-                  <div 
-                    className="floor-plan-container"
-                    onClick={() => openLinkSafely(apartment.floorPlan)}
-                    style={{ cursor: 'pointer' }}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        openLinkSafely(apartment.floorPlan);
-                      }
-                    }}
-                    aria-label={`View full floor plan for ${apartment.floor}`}
-                  >
-                    <img
-                      src={apartment.floorPlan}
-                      alt={`Floor plan for ${apartment.floor}`}
-                      className="floor-plan-image"
-                      loading="lazy"
-                    />
-                    <div className="floor-plan-overlay">
-                      <span className="floor-plan-label">{t('apartments.floorPlan')}</span>
-                      <div className="mobile-hint">
-                        <span className="desktop-text">{t('building.mobileHints.clickToView')}</span>
-                        <span className="mobile-text">{t('building.mobileHints.tapToOpen')}</span>
-                      </div>
-                      <button 
-                        className="view-floor-plan-btn"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          openLinkSafely(apartment.floorPlan);
-                        }}
-                        aria-label={`View full floor plan for ${apartment.floor}`}
-                      >
-                        {t('apartments.viewFullPlan')}
-                      </button>
-                    </div>
-                  </div>
-                  {apartment.balcony && (
-                    <div className="balcony-badge">{t('apartments.balcony')}</div>
-                  )}
-                </div>
-                
-                <div className="apartment-info">
-                  <div className="apartment-header">
-                    <h3>Apartment {apartment.id}</h3>
-                    <div className="apartment-floor">{apartment.floor}</div>
-                  </div>
-                  
-                  <div className="apartment-details">
-                    <div className="detail-item">
-                      <span className="detail-label">{t('apartments.area')}</span>
-                      <span className="detail-value">{apartment.area} m²</span>
-                    </div>
-                    <div className="detail-item">
-                      <span className="detail-label">{t('apartments.bedrooms')}</span>
-                      <span className="detail-value">{apartment.bedrooms}</span>
-                    </div>
-                    <div className="detail-item">
-                      <span className="detail-label">Balcony</span>
-                      <span className="detail-value">{apartment.balcony ? 'Yes' : 'No'}</span>
-                    </div>
-                  </div>
-                  
-                  
-                  <button 
-                    className="btn btn-primary apartment-btn"
-                    onClick={handleViewApartment}
-                  >
-                    {t('apartments.viewApartment')}
-                  </button>
-                </div>
-              </motion.div>
-            ))}
           </motion.div>
         </motion.div>
       </div>

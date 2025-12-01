@@ -361,7 +361,6 @@ const BuildingOverview = () => {
                   />
                 </div>
                 <div className="feature-content">
-                  <p>{feature.description}</p>
                   <div className="view-plan-hint">
                     <span>{t('building.clickToViewFullFloorPlan')} →</span>
                   </div>
