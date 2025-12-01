@@ -268,9 +268,6 @@ const Apartments = () => {
                     </span>
                   </p>
                 </div>
-                <p className="pricing-disclaimer">
-                  {t('apartments.lastFloorNotOffered')}
-                </p>
               </motion.div>
 
               <motion.div
