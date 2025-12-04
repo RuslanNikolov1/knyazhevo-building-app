@@ -37,9 +37,9 @@
 }
 
 .floor-btn {
-  background: var(--light-gray);
-  border: 2px solid var(--medium-gray);
-  color: var(--text-secondary);
+  background: #e0e0e0;
+  border: 2px solid #b0b0b0;
+  color: var(--white);
   padding: 1rem 1.5rem;
   border-radius: 8px;
   cursor: pointer;
@@ -545,6 +545,9 @@
 
     .maisonettes-row-intro {
       .maisonettes-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
         font-weight: 500;
         letter-spacing: 0.04em;
         font-size: 1.1rem;
@@ -558,6 +561,9 @@
         letter-spacing: 0.02em;
 
         .maisonettes-intro-numbers {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
           font-weight: 700;
         }
 
@@ -905,8 +911,17 @@
 .garage-legend-dot {
   width: 16px;
   height: 16px;
-  border-radius: 50%;
+  border-radius: 0;
   flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.maisonettes-color-square {
+  width: 16px;
+  height: 16px;
+  border-radius: 0;
+  flex-shrink: 0;
+  display: inline-block;
   border: 2px solid rgba(255, 255, 255, 0.7);
 }
 
@@ -931,7 +946,7 @@
 }
 
 .garage-legend-dot-orange {
-  background: #f08c00;
+  background: #FFA500;
 }
 
 .garage-legend-dot-yellow {

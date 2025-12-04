@@ -87,19 +87,19 @@
     "parkingPricing": "Парко места от 17 хил.евро без ДДС",
     "garagePricing": "Гаражи от 20 хил.евро без ДДС",
     "garageLegend": {
-      "doubleParallelPrefix": "Червено - Двойни гаражи с успоредно паркиране -",
+      "doubleParallelPrefix": "Двойни гаражи с успоредно паркиране -",
       "doubleParallelValue": "33 000",
       "doubleParallelSuffix": "евро без ДДС",
-      "doubleTandemPrefix": "Оранжево - Двойни гаражи с паркиране една зад друга -",
+      "doubleTandemPrefix": "Двойни гаражи с паркиране една зад друга -",
       "doubleTandemValue": "29 000",
       "doubleTandemSuffix": "евро без ДДС",
-      "singleGaragesPrefix": "Жълто - Единични гаражи -",
+      "singleGaragesPrefix": "Гаражи единични -",
       "singleGaragesValue": "16 500",
       "singleGaragesSuffix": "евро без ДДС",
-      "doubleParkingSpacesPrefix": "Светло синьо - Двойни паркоместа -",
+      "doubleParkingSpacesPrefix": "Двойни паркоместа -",
       "doubleParkingSpacesValue": "25 000",
       "doubleParkingSpacesSuffix": "евро без ДДС",
-      "singleParkingSpacesPrefix": "Синьо - Единични паркоместа -",
+      "singleParkingSpacesPrefix": "Единични паркомяста -",
       "singleParkingSpacesValue": "8 500",
       "singleParkingSpacesSuffix": "евро без ДДС"
     },
@@ -128,11 +128,9 @@
     "paymentPlan2Step6": "10% - акт 16",
     "paymentPlan3Title": "Вариант III",
     "paymentPlan3Subtitle": "С ипотечно финансиране",
-    "paymentPlan3Step1": "30% (възможност за договаряне между 20-30% самоучастие)",
+    "paymentPlan3Step1": "30% (възможност за договаряне)",
     "paymentPlan3Step2": "60% - акт 14",
-    "paymentPlan3Step3": "10% акт 16",
-    "paymentPlan3Step4": "Инвеститор с референции от 4 банки за съвместна работа",
-    "paymentPlan3Step5": "Преференции за условията за клиентите ни при покупка с банков кредит"
+    "paymentPlan3Step3": "10% акт 16"
   },
   "amenities": {
     "title": "Удобства и паркинг",

@@ -87,19 +87,19 @@
     "parkingPricing": "Parking spaces from 17,000 euros without VAT",
     "garagePricing": "Garages from 20,000 euros without VAT",
     "garageLegend": {
-      "doubleParallelPrefix": "Red - Double garages with side-by-side parking -",
+      "doubleParallelPrefix": "Double garages with side-by-side parking -",
       "doubleParallelValue": "33 thousand",
       "doubleParallelSuffix": "euros without VAT",
-      "doubleTandemPrefix": "Orange - Double garages with tandem parking -",
+      "doubleTandemPrefix": "Double garages with tandem parking -",
       "doubleTandemValue": "29 thousand",
       "doubleTandemSuffix": "euros without VAT",
-      "singleGaragesPrefix": "Yellow - Single garages -",
+      "singleGaragesPrefix": "Single garages -",
       "singleGaragesValue": "16.5 thousand",
       "singleGaragesSuffix": "euros without VAT",
-      "doubleParkingSpacesPrefix": "Light blue - Double parking spaces -",
+      "doubleParkingSpacesPrefix": "Double parking spaces -",
       "doubleParkingSpacesValue": "25 thousand",
       "doubleParkingSpacesSuffix": "euros without VAT",
-      "singleParkingSpacesPrefix": "Blue - Single parking spaces -",
+      "singleParkingSpacesPrefix": "Single parking spaces -",
       "singleParkingSpacesValue": "8.5 thousand",
       "singleParkingSpacesSuffix": "euros without VAT"
     },
@@ -128,11 +128,9 @@
     "paymentPlan2Step6": "10% - Act 16",
     "paymentPlan3Title": "Option III",
     "paymentPlan3Subtitle": "With mortgage financing",
-    "paymentPlan3Step1": "30% (possibility to negotiate between 20-30% down payment)",
+    "paymentPlan3Step1": "30% (possibility to negotiate)",
     "paymentPlan3Step2": "60% - Act 14",
-    "paymentPlan3Step3": "10% Act 16",
-    "paymentPlan3Step4": "Investor with references from 4 banks for joint work",
-    "paymentPlan3Step5": "Preferential terms for our clients when purchasing with a bank loan"
+    "paymentPlan3Step3": "10% Act 16"
   },
   "amenities": {
     "title": "Amenities & Parking",

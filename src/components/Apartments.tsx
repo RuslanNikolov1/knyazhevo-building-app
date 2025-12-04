@@ -158,7 +158,7 @@ const Apartments = () => {
             <>
               <div className="garage-legend">
                 <div className="garage-legend-item">
-                  <span className="garage-legend-dot garage-legend-dot-red" />
+                  <span className="garage-legend-dot garage-legend-dot-orange" />
                   <span>
                     {t('apartments.garageLegend.doubleParallelPrefix')}{' '}
                     <span className="garage-legend-price-badge">
@@ -168,7 +168,7 @@ const Apartments = () => {
                   </span>
                 </div>
                 <div className="garage-legend-item">
-                  <span className="garage-legend-dot garage-legend-dot-orange" />
+                  <span className="garage-legend-dot garage-legend-dot-yellow" />
                   <span>
                     {t('apartments.garageLegend.doubleTandemPrefix')}{' '}
                     <span className="garage-legend-price-badge">
@@ -178,7 +178,7 @@ const Apartments = () => {
                   </span>
                 </div>
                 <div className="garage-legend-item">
-                  <span className="garage-legend-dot garage-legend-dot-yellow" />
+                  <span className="garage-legend-dot garage-legend-dot-red" />
                   <span>
                     {t('apartments.garageLegend.singleGaragesPrefix')}{' '}
                     <span className="garage-legend-price-badge">
@@ -218,11 +218,11 @@ const Apartments = () => {
                 <div className="garage-colored-card" style={{ position: 'relative' }}>
                   <span className="image-full-view-hint">{t('building.clickToViewFullPlan')}</span>
                   <img
-                    src="/garages-colored.png"
+                    src="/garages-floor.png"
                     alt="Garages and parking layout"
                     className="garage-colored-image"
                     loading="lazy"
-                    onClick={() => setModalImage('/garages-colored.png')}
+                    onClick={() => setModalImage('/garages-floor.png')}
                     style={{ cursor: 'pointer' }}
                   />
                 </div>
@@ -247,6 +247,7 @@ const Apartments = () => {
                   <p className="pricing-highlight maisonettes-highlight">
                     <span className="maisonettes-row maisonettes-row-intro">
                       <span className="maisonettes-label">
+                        <span className="maisonettes-color-square" style={{ backgroundColor: '#AA07DB' }} />
                         {t('apartments.maisonettesPricingLabel')}
                       </span>
                       <span className="maisonettes-intro">
@@ -279,7 +280,7 @@ const Apartments = () => {
                 <div className="features-grid">
                   <div
                     className="feature-card"
-                    onClick={() => openLinkSafely('/+3.10-1.png')}
+                    onClick={() => openLinkSafely('/floor-1.png')}
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="feature-header">
@@ -291,13 +292,13 @@ const Apartments = () => {
                     <div className="feature-image" style={{ position: 'relative' }}>
                       <span className="image-full-view-hint">{t('building.clickToViewFullPlan')}</span>
                       <img
-                        src="/+3.10-1.png"
+                        src="/floor-1.png"
                         alt={`Floor plan for ${t('building.floors.floor1')}`}
                         className="full-width-floor-plan"
                         loading="lazy"
                         onClick={(e) => {
                           e.stopPropagation();
-                          setModalImage('/+3.10-1.png');
+                          setModalImage('/floor-1.png');
                         }}
                         style={{ cursor: 'pointer' }}
                       />
@@ -305,7 +306,7 @@ const Apartments = () => {
                   </div>
                   <div
                     className="feature-card"
-                    onClick={() => openLinkSafely('/+6.15-1.png')}
+                    onClick={() => openLinkSafely('/floor-2.png')}
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="feature-header">
@@ -317,13 +318,13 @@ const Apartments = () => {
                     <div className="feature-image" style={{ position: 'relative' }}>
                       <span className="image-full-view-hint">{t('building.clickToViewFullPlan')}</span>
                       <img
-                        src="/+6.15-1.png"
+                        src="/floor-2.png"
                         alt={`Floor plan for ${t('building.floors.floor2')}`}
                         className="full-width-floor-plan"
                         loading="lazy"
                         onClick={(e) => {
                           e.stopPropagation();
-                          setModalImage('/+6.15-1.png');
+                          setModalImage('/floor-2.png');
                         }}
                         style={{ cursor: 'pointer' }}
                       />
@@ -477,10 +478,6 @@ const Apartments = () => {
                         {stripPercentPrefix(t('apartments.paymentPlan3Step3'))}
                       </div>
                     </div>
-                  </div>
-                  <div className="payment-plan-notes">
-                    <p>{t('apartments.paymentPlan3Step4')}</p>
-                    <p>{t('apartments.paymentPlan3Step5')}</p>
                   </div>
                 </div>
               </motion.div>
