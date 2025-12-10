@@ -21,9 +21,9 @@ function App() {
       i18n.changeLanguage('bg');
     }
     
-    // Update og:url and canonical to use current origin
+    // Update og:url and canonical to use current origin (localhost or production)
     if (typeof window !== 'undefined' && window.location) {
-      const origin = window.location.origin;
+      const origin = window.location.origin; // Will be http://localhost:5173 locally, or production domain in production
       const path = window.location.pathname;
       const fullUrl = origin + path;
       
