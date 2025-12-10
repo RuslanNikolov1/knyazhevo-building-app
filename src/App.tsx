@@ -20,6 +20,22 @@ function App() {
     if (!localStorage.getItem('i18nextLng')) {
       i18n.changeLanguage('bg');
     }
+    
+    // Update og:url and canonical to use current origin
+    if (typeof window !== 'undefined' && window.location) {
+      const origin = window.location.origin;
+      const path = window.location.pathname;
+      const fullUrl = origin + path;
+      
+      const ogUrlMeta = document.getElementById('og-url');
+      if (ogUrlMeta) {
+        ogUrlMeta.setAttribute('content', fullUrl);
+      }
+      const canonicalLink = document.getElementById('canonical-link') || document.querySelector('link[rel="canonical"]');
+      if (canonicalLink) {
+        canonicalLink.setAttribute('href', fullUrl);
+      }
+    }
   }, []); // Remove i18n dependency to prevent re-renders
 
   return (

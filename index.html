@@ -17,52 +17,24 @@
     <meta property="og:title" content="Forest residence Sofia - Вашият нов дом – там, където градът среща планината" />
     <meta property="og:description" content="Живейте в сърцето на града и на крачка от природата. Съвременен дизайн, зелени пространства и удобства за спокойствие и комфорт всеки ден." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" id="og-url" content="/" />
-    <meta property="og:image" content="/3.png" />
+    <meta property="og:url" id="og-url" />
+    <meta property="og:image" content="/3.jpg" />
     <meta property="og:locale" content="bg_BG" />
-    <script>
-      // Update og:url and canonical to use current origin (runs after DOM is ready)
-      (function() {
-        function updateUrls() {
-          if (typeof window !== 'undefined' && window.location) {
-            const origin = window.location.origin;
-            const path = window.location.pathname;
-            const fullUrl = origin + path;
-            
-            const ogUrlMeta = document.getElementById('og-url');
-            if (ogUrlMeta) {
-              ogUrlMeta.setAttribute('content', fullUrl);
-            }
-            const canonicalLink = document.querySelector('link[rel="canonical"]');
-            if (canonicalLink) {
-              canonicalLink.setAttribute('href', fullUrl);
-            }
-          }
-        }
-        
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', updateUrls);
-        } else {
-          updateUrls();
-        }
-      })();
-    </script>
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Forest residence Sofia - Вашият нов дом – там, където градът среща планината" />
     <meta name="twitter:description" content="Живейте в сърцето на града и на крачка от природата. Съвременен дизайн, зелени пространства и удобства за спокойствие и комфорт всеки ден." />
-    <meta name="twitter:image" content="/3.png" />
+    <meta name="twitter:image" content="/3.jpg" />
     
     <!-- Additional Meta Tags -->
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#f39c12" />
-    <link rel="canonical" href="/" />
+    <link rel="canonical" id="canonical-link" />
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="/3.jpg" as="image" fetchpriority="high" />
     <link rel="preload" href="/4.jpg" as="image" fetchpriority="high" />
-    <link rel="preload" href="/29.09.2025 г..glb" as="fetch" crossorigin />
     
     <!-- DNS Prefetch for external resources -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
