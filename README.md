@@ -237,7 +237,7 @@ This project is licensed under the MIT License.
 ## 📞 Contact
 
 For questions about this project:
-- **Email**: info@luxuryliving.bg
+- **Email**: sofiaforestresidence@gmail.com
 - **Phone**: +359 2 123 4567
 - **Website**: https://luxuryliving.bg
 

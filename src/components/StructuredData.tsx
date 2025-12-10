@@ -3,16 +3,26 @@ import { useTranslation } from 'react-i18next';
 const StructuredData = () => {
   const { t } = useTranslation();
 
+  // Get current origin dynamically
+  const getBaseUrl = () => {
+    if (typeof window !== 'undefined') {
+      return window.location.origin;
+    }
+    return '';
+  };
+
+  const baseUrl = getBaseUrl();
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "name": "Forest Residence Sofia",
     "description": t('hero.subtitle'),
-    "url": "https://luxuryliving.bg",
-    "logo": "https://luxuryliving.bg/logo.png",
+    "url": baseUrl || "/",
+    "logo": `${baseUrl}/logo.png`,
     "image": [
-      "https://luxuryliving.bg/3.png",
-      "https://luxuryliving.bg/5.png"
+      `${baseUrl}/3.png`,
+      `${baseUrl}/5.png`
     ],
     "address": {
       "@type": "PostalAddress",
@@ -21,10 +31,10 @@ const StructuredData = () => {
       "addressCountry": "BG"
     },
     "telephone": "+359 2 123 4567",
-    "email": "info@luxuryliving.bg",
+    "email": "sofiaforestresidence@gmail.com",
     "sameAs": [
-      "https://facebook.com/luxuryliving",
-      "https://instagram.com/luxuryliving"
+      "https://facebook.com/forestresidencesofia",
+      "https://instagram.com/forestresidencesofia"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
