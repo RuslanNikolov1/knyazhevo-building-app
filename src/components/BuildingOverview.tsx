@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { SquaresFour, Flame, ArrowsVertical, Buildings, Thermometer } from '@phosphor-icons/react';
 import Building3D from './Building3D';
 import OptimizedImage from './OptimizedImage';
 import './BuildingOverview.scss';
@@ -337,6 +338,78 @@ const BuildingOverview = () => {
               <div className="stat-number">2028</div>
               <div className="stat-label">{t('building.stats.completion')}</div>
               <OptimizedImage src={`/stats-completion.png?v=${cacheBuster}`} alt="Completion" width={100} height={100} className="stat-image" sizes="100px" />
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="building-details"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+          >
+            <h3>🏢 {t('building.details.title')}</h3>
+            <p className="details-description">{t('building.details.description')}</p>
+            
+            <div className="details-grid">
+              <div className="detail-card">
+                <div className="detail-icon">
+                  <SquaresFour size={32} weight="fill" color="var(--white)" />
+                </div>
+                <h4>{t('building.details.windows.title')}</h4>
+                <ul className="detail-list">
+                  {(t('building.details.windows.items', { returnObjects: true }) as string[]).map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="detail-card">
+                <div className="detail-icon">
+                  <Flame size={32} weight="fill" color="var(--white)" />
+                </div>
+                <h4>{t('building.details.heating.title')}</h4>
+                <ul className="detail-list">
+                  {(t('building.details.heating.items', { returnObjects: true }) as string[]).map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="detail-card">
+                <div className="detail-icon">
+                  <ArrowsVertical size={32} weight="fill" color="var(--white)" />
+                </div>
+                <h4>{t('building.details.elevator.title')}</h4>
+                <ul className="detail-list">
+                  {(t('building.details.elevator.items', { returnObjects: true }) as string[]).map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="detail-card">
+                <div className="detail-icon">
+                  <Buildings size={32} weight="fill" color="var(--white)" />
+                </div>
+                <h4>{t('building.details.construction.title')}</h4>
+                <ul className="detail-list">
+                  {(t('building.details.construction.items', { returnObjects: true }) as string[]).map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="detail-card">
+                <div className="detail-icon">
+                  <Thermometer size={32} weight="fill" color="var(--white)" />
+                </div>
+                <h4>{t('building.details.insulation.title')}</h4>
+                <ul className="detail-list">
+                  {(t('building.details.insulation.items', { returnObjects: true }) as string[]).map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </motion.div>
 

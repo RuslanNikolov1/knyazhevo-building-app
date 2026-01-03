@@ -31,6 +31,13 @@ const Apartments = () => {
   const [selectedTab, setSelectedTab] = useState('floors');
   const [modalImage, setModalImage] = useState<string | null>(null);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -243,31 +250,19 @@ const Apartments = () => {
                 <div className="pricing-highlight-row">
                   <p className="pricing-highlight">
                     {highlightPrimaryPrice(t('apartments.apartmentPricing'))}
+                    <br />
+                    <button 
+                      className="pricing-contact-link"
+                      onClick={() => scrollToSection('contact')}
+                      type="button"
+                    >
+                      {t('apartments.apartmentPricingContact')}
+                    </button>
                   </p>
-                  <p className="pricing-highlight maisonettes-highlight">
-                    <span className="maisonettes-row maisonettes-row-intro">
-                      <span className="maisonettes-label">
-                        <span className="maisonettes-color-square" style={{ backgroundColor: '#AA07DB' }} />
-                        {t('apartments.maisonettesPricingLabel')}
-                      </span>
-                      <span className="maisonettes-intro">
-                        <span className="maisonettes-intro-numbers">
-                          {t('apartments.maisonettesPricingIntroNumbers')}
-                        </span>
-                        <span className="maisonettes-intro-rest">
-                          {t('apartments.maisonettesPricingIntroRest')}
-                        </span>
-                      </span>
-                    </span>
-                    <span className="maisonettes-row maisonettes-row-value">
-                      <span className="pricing-highlight-value maisonettes-value">
-                        {t('apartments.maisonettesPricingValue')}
-                      </span>
-                    </span>
-                    <span className="maisonettes-row maisonettes-row-suffix">
-                      {t('apartments.maisonettesPricingSuffix')}
-                    </span>
-                  </p>
+                </div>
+                <div className="maisonettes-label">
+                  <span className="maisonettes-color-square" style={{ backgroundColor: '#AA07DB' }} />
+                  <span className="maisonettes-label-text">{t('apartments.maisonettesLabel')}</span>
                 </div>
               </motion.div>
 
