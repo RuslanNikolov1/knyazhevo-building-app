@@ -164,54 +164,51 @@ const Apartments = () => {
           {selectedTab === 'garageParking' && (
             <>
               <div className="garage-legend">
+                <motion.div
+                  className="pricing-info"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <h3>{t('apartments.apartmentPricingTitle')}</h3>
+                  <p className="pricing-highlight">
+                    <button
+                      className="pricing-contact-link"
+                      onClick={() => scrollToSection('contact')}
+                      type="button"
+                    >
+                      {t('apartments.apartmentPricingContact')}
+                    </button>
+                  </p>
+                </motion.div>
                 <div className="garage-legend-item">
                   <span className="garage-legend-dot garage-legend-dot-orange" />
                   <span>
-                    {t('apartments.garageLegend.doubleParallelPrefix')}{' '}
-                    <span className="garage-legend-price-badge">
-                      {t('apartments.garageLegend.doubleParallelValue')}
-                    </span>{' '}
-                    {t('apartments.garageLegend.doubleParallelSuffix')}
+                    {t('apartments.garageLegend.doubleParallelPrefix')}
                   </span>
                 </div>
                 <div className="garage-legend-item">
                   <span className="garage-legend-dot garage-legend-dot-yellow" />
                   <span>
-                    {t('apartments.garageLegend.doubleTandemPrefix')}{' '}
-                    <span className="garage-legend-price-badge">
-                      {t('apartments.garageLegend.doubleTandemValue')}
-                    </span>{' '}
-                    {t('apartments.garageLegend.doubleTandemSuffix')}
+                    {t('apartments.garageLegend.doubleTandemPrefix')}
                   </span>
                 </div>
                 <div className="garage-legend-item">
                   <span className="garage-legend-dot garage-legend-dot-red" />
                   <span>
-                    {t('apartments.garageLegend.singleGaragesPrefix')}{' '}
-                    <span className="garage-legend-price-badge">
-                      {t('apartments.garageLegend.singleGaragesValue')}
-                    </span>{' '}
-                    {t('apartments.garageLegend.singleGaragesSuffix')}
+                    {t('apartments.garageLegend.singleGaragesPrefix')}
                   </span>
                 </div>
                 <div className="garage-legend-item">
                   <span className="garage-legend-dot garage-legend-dot-light-blue" />
                   <span>
-                    {t('apartments.garageLegend.doubleParkingSpacesPrefix')}{' '}
-                    <span className="garage-legend-price-badge">
-                      {t('apartments.garageLegend.doubleParkingSpacesValue')}
-                    </span>{' '}
-                    {t('apartments.garageLegend.doubleParkingSpacesSuffix')}
+                    {t('apartments.garageLegend.doubleParkingSpacesPrefix')}
                   </span>
                 </div>
                 <div className="garage-legend-item">
                   <span className="garage-legend-dot garage-legend-dot-blue" />
                   <span>
-                    {t('apartments.garageLegend.singleParkingSpacesPrefix')}{' '}
-                    <span className="garage-legend-price-badge">
-                      {t('apartments.garageLegend.singleParkingSpacesValue')}
-                    </span>{' '}
-                    {t('apartments.garageLegend.singleParkingSpacesSuffix')}
+                    {t('apartments.garageLegend.singleParkingSpacesPrefix')}
                   </span>
                 </div>
               </div>
@@ -234,7 +231,7 @@ const Apartments = () => {
                   />
                 </div>
               </motion.div>
-              
+
             </>
           )}
 
@@ -249,9 +246,7 @@ const Apartments = () => {
                 <h3>{t('apartments.apartmentPricingTitle')}</h3>
                 <div className="pricing-highlight-row">
                   <p className="pricing-highlight">
-                    {highlightPrimaryPrice(t('apartments.apartmentPricing'))}
-                    <br />
-                    <button 
+                    <button
                       className="pricing-contact-link"
                       onClick={() => scrollToSection('contact')}
                       type="button"
@@ -364,7 +359,7 @@ const Apartments = () => {
                 <p className="payment-plans-note">
                   {t('apartments.paymentPlansNegotiationNote')}
                 </p>
-                
+
                 <div className="payment-plan payment-plan-visual">
                   <h4 className="payment-plan-title">{t('apartments.paymentPlan1Title')}</h4>
                   <p className="payment-plan-subtitle">{t('apartments.paymentPlan1Subtitle')}</p>
@@ -484,15 +479,15 @@ const Apartments = () => {
 
       {/* Image Modal */}
       {modalImage && (
-        <div 
+        <div
           className="image-modal-overlay"
           onClick={() => setModalImage(null)}
         >
-          <div 
+          <div
             className="image-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
+            <button
               className="image-modal-close"
               onClick={() => setModalImage(null)}
               aria-label="Close modal"
