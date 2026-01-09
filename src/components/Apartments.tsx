@@ -6,25 +6,25 @@ import { openLinkSafely } from '../utils/openLink';
 import './Apartments.scss';
 
 const stripPercentPrefix = (text: string) => text.replace(/^\d+% ?-? ?/, '');
-const highlightPrimaryPrice = (text: string) => {
-  const match = text.match(/(\d[\d\s.,]*)/);
-  if (!match) {
-    return text;
-  }
+// const highlightPrimaryPrice = (text: string) => {
+//   const match = text.match(/(\d[\d\s.,]*)/);
+//   if (!match) {
+//     return text;
+//   }
 
-  const [value] = match;
-  const startIndex = text.indexOf(value);
-  const before = text.slice(0, startIndex);
-  const after = text.slice(startIndex + value.length);
+//   const [value] = match;
+//   const startIndex = text.indexOf(value);
+//   const before = text.slice(0, startIndex);
+//   const after = text.slice(startIndex + value.length);
 
-  return (
-    <>
-      {before}
-      <span className="pricing-highlight-value">{value}</span>
-      {after}
-    </>
-  );
-};
+//   return (
+//     <>
+//       {before}
+//       <span className="pricing-highlight-value">{value}</span>
+//       {after}
+//     </>
+//   );
+// };
 
 const Apartments = () => {
   const { t } = useTranslation();
